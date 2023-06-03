@@ -17,7 +17,7 @@ def logicaMenu(
     opcionDos: 'function'
 ):
     cls()
-    print(f'{nombrePrograma} de RSS | Grupo 1. SSL 2022.')
+    print(f'{nombrePrograma} de Docbook Article | Grupo 12. SSL 2023.')
     while(True):
         printMenu(opcionesMenu)
         option = ''
