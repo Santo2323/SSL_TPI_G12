@@ -23,19 +23,63 @@ tokens = [
     # etiquetas
     'article',
     'cierreArticle',
+    
     'section',
     'cierreSection',
+    
     'info',
     'cierreInfo'
+    
     'simpleSection',
     'cierreSimpleSection',
+    
     'title',
     'cierreTitle',
+    
+    'itemizedlist',
+    'cierreItemizedlist',
 
+    'important',
+    'cierreImportant',
     
+    'para',
+    'cierrePara',
     
-    
+    'simpara',
+    'cierreSimpara',
 
+    'address',
+    'cierreAddress',
+
+    # 'mediaObject' //TODO: NO TENGO IDEA DE COMO HACERLO, A VER MAS TARDE  
+
+    'informalTable',
+    'cierreInformalTable',
+    
+    'comment',
+    'cierreComment',
+
+    'abstract',
+    'cierreAbstract',
+    
+    'author',
+    'cierreAuthor',
+    
+    'date',
+    'cierreDate',
+    
+    'copyright',
+    'cierreCopyright',
+    
+    'street',
+    'cierreStreet',
+    
+    'city',
+    'cierreCity',
+    
+    'state',
+    'cierreState',
+    
     # Contenido entre etiquetas
     'contenido_texto',
     # 'URL'
@@ -62,13 +106,53 @@ def t_section(t): r'<section>'; return(t);
 def t_cierreSection(t): r'</section>';  return(t);
 
 def t_info(t): r'<info>'; return(t);
-    
+def t_cierrreInfo(t): r'</info>'; return(t);   
 
 def t_simpleSection(t): r'<simplesect>'; return(t);
 def t_cierreSimpleSection(t): r'</simplesect>'; return(t);
 
-def t_title(t): r'<title>'; return (t);
-def t_cierreTitle(t): r'</title>'; return (t);
+def t_title(t): r'<title>'; return(t);
+def t_cierreTitle(t): r'</title>'; return(t);
+
+def t_itemizedlist(t): r'<itemizedlist>'; return (t);
+def t_cierreItemizedlist(t): r'</itemizedlist>'; return (t);
+
+def t_important(t): r'<important>'; return (t);
+def t_cierreImportant(t): r'</important>'; return (t);
+
+def t_para(t): r'<para>'; return (t);
+def t_cierrePara(t): r'</para>'; return (t);
+
+def t_simpara(t): r'<simpara>'; return (t);
+def t_cierreSimpara(t): r'</simpara>'; return (t);
+
+def t_address(t): r'<address>'; return (t);
+def t_cierreAddress(t): r'</address>'; return (t);
+
+def t_informalTable(t): r'<informaltable>'; return (t);
+def t_cierreInformalTable(t): r'</informaltable>'; return (t);
+
+def t_comment(t): r'<comment>'; return (t);
+def t_cierreComment(t): r'</comment>'; return (t);
+
+def t_author(t): r'<author>'; return (t);
+def t_cierreAuthor(t): r'</author>'; return (t);
+
+def t_date(t): r'<date>'; return (t);
+def t_cierreDate(t): r'</date>'; return (t);
+
+def t_copyright(t): r'<copyright>'; return (t);
+def t_cierreCopyright(t): r'</copyright>'; return (t);
+
+def t_street(t): r'<street>'; return (t);
+def t_cierreStreet(t): r'</street>'; return (t);
+
+def t_state(t): r'<state>'; return (t);
+def t_cierreState(t): r'</state>'; return (t);
+
+
+
+
 
 
 # Protocolos
