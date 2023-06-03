@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./src/ply-3.11"
+    ]
+}
