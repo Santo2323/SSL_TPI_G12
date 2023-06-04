@@ -8,17 +8,8 @@ contadorErrores = 0
 # Terminales
 tokens = [
     # simbolos
-     'dospuntos',
-     'slash',
-
-    # Opcionales TODO: Verificar cuales serian nuestros opcionales
-    # 'height',
-    # 'cerrarheight',
-    # 'width',
-    # 'cerrarwidth',
-
-    # Simbolos URL
-     'protocolo',
+    'dospuntos',
+    'slash',
 
     # etiquetas
     'article',
@@ -51,7 +42,18 @@ tokens = [
     'address',
     'cierreAddress',
 
-    # 'mediaObject' //TODO: NO TENGO IDEA DE COMO HACERLO, A VER MAS TARDE  
+    'mediaObject',
+    'cierreMediaObject',
+    
+	'videoObject',
+    'cierreVideoObject',
+    
+	'imageObject',
+    'cierreImageObject',
+    
+	'videoData',
+    
+    'imageData',
 
     'informalTable',
     'cierreInformalTable',
@@ -104,7 +106,8 @@ tokens = [
     'listItem',
     'cierreListItem',
     
-    # 'link' TODO: ni idea como carajos se hace esto tampoco
+    'link',
+    'cierreLink',
     
     'tgroup',
     'cierreTgroup',
@@ -127,13 +130,15 @@ tokens = [
     'entrytbl',
     'cierreEntrytbl',
     
+    # 'URL'
+	'URL',
+    'URL_relativa',
+    'URL_interna',
     
     # Contenido entre etiquetas
     'contenido_texto',
-      'digito',
+    'digito',
     'numeral',
-    # 'URL'
-
 ]
 
 # PLY detecta variables que empiecen con 't_'
@@ -156,7 +161,7 @@ def t_section(t): r'<section>'; return(t);
 def t_cierreSection(t): r'</section>';  return(t);
 
 def t_info(t): r'<info>'; return(t);
-def t_cierrreInfo(t): r'</info>'; return(t);   
+def t_cierreInfo(t): r'</info>'; return(t);   
 
 def t_simpleSection(t): r'<simplesect>'; return(t);
 def t_cierreSimpleSection(t): r'</simplesect>'; return(t);
@@ -245,31 +250,39 @@ def t_cierreEntry(t): r'</entry>'; return (t);
 def t_entrytbl(t): r'<entrytbl>'; return (t);
 def t_cierreEntrytbl(t): r'</entrytbl>'; return (t);
 
+def t_link(t):
+    r'<link\s+xlink:href\s*=\s*"(?:http[s]?|ftp[s]?):\/\/[^\s/$.?#].[^\s]*|(?:\./)?(?:[\w-]+/)*[\w-]+\.\w+(?:\?[^\s]*)?|\#[^\s]+"\s*>';
+    return (t);
+
+def t_cierreLink(t): r'</link>'; return (t);
+
+def t_mediaObject(t): r'<mediaobject>'; return (t);
+def t_cierreMediaObject(t): r'</mediaobject>'; return (t);
+
+def t_videoObject(t): r'<videoobject>'; return (t);
+def t_cierreVideoObject(t): r'</videoobject>'; return (t);
+
+def t_imageObject(t): r'<imageobject>'; return (t);
+def t_cierreImageObject(t): r'</imageobject>'; return (t);
+
+def t_imageData(t):
+    r'<imagedata\s+fileref\s*=\s*"(?:http[s]?|ftp[s]?):\/\/[^\s/$.?#].[^\s]*|(?:\./)?(?:[\w-]+/)*[\w-]+\.\w+(?:\?[^\s]*)?|\#[^\s]+"\/>';
+    return (t);
+
+def t_videoData(t):
+    r'<videodata\s+fileref\s*=\s*"(?:http[s]?|ftp[s]?):\/\/[^\s/$.?#].[^\s]*|(?:\./)?(?:[\w-]+/)*[\w-]+\.\w+(?:\?[^\s]*)?|\#[^\s]+"\/>';
+
+def t_URL(t):
+    r'(?:http[s]?|ftp[s]?):\/\/[^\s/$.?#].[^\s]*|(?:\./)?(?:[\w-]+/)*[\w-]+\.\w+(?:\?[^\s]*)?|\#[^\s]+';
+    if '#' in t.value:
+        t.type = 'URL_interna'
+    elif t.value.startswith(('http://', 'https://', 'ftp://', 'ftps://')):
+        t.type = 'URL'
+    else:
+        t.type = 'URL_relativa'
+    return (t);
 
 
-
-
-
-
-
-
-
-
-# Protocolos
-def t_protocolo(t): r'(https|http|ftps|ftp):\/\/'; return (t)
-
-# Etiquetas opcionales
-# def t_height(t): r'<height>'; return(t)
-# def t_cerrarheight(t): r'<\/height>'; return(t)
-
-# def t_width(t): r'<width>'; return(t)
-# def t_cerrarwidth(t): r'<\/width>'; return(t)
-
-# def t_image(t): r'<image>'; return(t)
-# def t_cerrarimage(t): r'<\/image>'; return(t)
-
-# def t_copyright(t): r'<copyright>'; return(t)
-# def t_cerrarcopyright(t): r'<\/copyright>'; return(t)
 
 # Resto
 t_digito = r'\d+'
@@ -291,7 +304,7 @@ def t_newline(t):
     r'\n+'
     t.lexer.lineno += len(t.value)
 
-def t_contenido_texto(t): r'([\w\W])+?(?=<\/)'; return (t)
+def t_contenido_texto(t): r'([\w\W])+?(?=<)'; return (t)
 
 # Logica para menu
 menu_options = {
@@ -351,7 +364,7 @@ def exportarTokens(arrAnalizar):
     print('(!) Se exportó un .txt con los tokens analizados.')
 
 # Se pasa como argumento al objeto lexer ya que,
-# la expresion de `t_contenido_texto` debe ser sobreescribida
+# la expresion de `t_contenido_texto` debe ser sobreescrita
 # según el modo de ejecución.
 def analizarTokens(modoEjecucion, lexer):
         global contadorErrores

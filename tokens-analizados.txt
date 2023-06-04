@@ -1,0 +1,48 @@
+TOKEN | VALOR
+-------------
+1- contenido_texto: <!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN" "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd">
+
+2- contenido_texto: <article lang="es">
+	
+3- title: <title>
+4- contenido_texto: Creando Documentación Técnica con DocBook
+5- cierreTitle: </title>
+6- info: <info>
+7- author: <author>
+8- firstname: <firstname>
+9- contenido_texto: Leonardo
+10- cierreFirstname: </firstname>
+11- surname: <surname>
+12- contenido_texto: Caballero
+13- cierreSurname: </surname>
+14- cierreAuthor: </author>
+15- cierreInfo: </info>
+16- section: <section>
+17- title: <title>
+18- contenido_texto: Introducción
+19- cierreTitle: </title>
+20- para: <para>
+21- contenido_texto: DocBook es un aplicación del estándar SGML/XML e incluye una DTD propia y que se utiliza de manera más destacada el área de la documentación 
+22- emphasis: <emphasis>
+23- contenido_texto: técnica
+24- cierreEmphasis: </emphasis>
+25- contenido_texto: , especialmente para documentar todo tipo de material y programas informáticos, para mayor información consultar
+26- link: <link xlink:href="http://www.oasis-open.org/docbook/">
+27- contenido_texto: aquí 
+28- cierreLink: </link>
+29- contenido_texto: . 
+30- cierrePara: </para>
+31- mediaObject: <mediaObject>
+32- imageObject: <imageobject>
+33- imageData: <imagedata fileref="http://www.google.com"/>
+34- cierreImageObject: </imageobject>
+35- cierreMediaObject: </mediaObject>
+36- para: <para>
+37- contenido_texto: Este es un 
+38- link: <link xlink:href="https://www.google.com.ar/">enlace</link>
+39- contenido_texto: al navegador de Google.
+40- cierrePara: </para>
+41- cierreSection: </section>
+42- cierreArticle: </article>
+-------------
+Total de tokens válidos analizados: 42.
