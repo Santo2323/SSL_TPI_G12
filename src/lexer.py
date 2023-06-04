@@ -251,7 +251,7 @@ def t_entrytbl(t): r'<entrytbl>'; return (t);
 def t_cierreEntrytbl(t): r'</entrytbl>'; return (t);
 
 def t_link(t):
-    r'<link\s+xlink:href\s*=\s*"(?:http[s]?|ftp[s]?):\/\/[^\s/$.?#].[^\s]*|(?:\./)?(?:[\w-]+/)*[\w-]+\.\w+(?:\?[^\s]*)?|\#[^\s]+"\s*>';
+    r'<link\s+xlink:href\s*=\s*"((?:http[s]?|ftp[s]?):\/\/)?[^\s/$.?#].[^\s]*|(?:\./)?(?:[\w-]+/)*[\w-]+\.\w+(?:\?[^\s]*)?|\#[^\s]+"\s*>';
     return (t);
 
 def t_cierreLink(t): r'</link>'; return (t);
@@ -266,14 +266,15 @@ def t_imageObject(t): r'<imageobject>'; return (t);
 def t_cierreImageObject(t): r'</imageobject>'; return (t);
 
 def t_imageData(t):
-    r'<imagedata\s+fileref\s*=\s*"(?:http[s]?|ftp[s]?):\/\/[^\s/$.?#].[^\s]*|(?:\./)?(?:[\w-]+/)*[\w-]+\.\w+(?:\?[^\s]*)?|\#[^\s]+"\/>';
+    r'<imagedata\s+fileref\s*=\s*"((?:http[s]?|ftp[s]?):\/\/)?[^\s/$.?#].[^\s]*|(?:\./)?(?:[\w-]+/)*[\w-]+\.\w+(?:\?[^\s]*)?|\#[^\s]+"\/>';
     return (t);
 
 def t_videoData(t):
-    r'<videodata\s+fileref\s*=\s*"(?:http[s]?|ftp[s]?):\/\/[^\s/$.?#].[^\s]*|(?:\./)?(?:[\w-]+/)*[\w-]+\.\w+(?:\?[^\s]*)?|\#[^\s]+"\/>';
+    r'<videodata\s+fileref\s*=\s*"((?:http[s]?|ftp[s]?):\/\/)?[^\s/$.?#].[^\s]*|(?:\./)?(?:[\w-]+/)*[\w-]+\.\w+(?:\?[^\s]*)?|\#[^\s]+"\/>';
+    return (t);
 
 def t_URL(t):
-    r'(?:http[s]?|ftp[s]?):\/\/[^\s/$.?#].[^\s]*|(?:\./)?(?:[\w-]+/)*[\w-]+\.\w+(?:\?[^\s]*)?|\#[^\s]+';
+    r'((?:http[s]?|ftp[s]?):\/\/)?[^\s/$.?#].[^\s]*|(?:\./)?(?:[\w-]+/)*[\w-]+\.\w+(?:\?[^\s]*)?|\#[^\s]+';
     if '#' in t.value:
         t.type = 'URL_interna'
     elif t.value.startswith(('http://', 'https://', 'ftp://', 'ftps://')):
