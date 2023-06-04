@@ -9,7 +9,7 @@ contadorErrores = 0
 tokens = [
     # simbolos
      'dospuntos',
-    #  'slash',
+     'slash',
 
     # Opcionales TODO: Verificar cuales serian nuestros opcionales
     # 'height',
@@ -28,7 +28,7 @@ tokens = [
     'cierreSection',
     
     'info',
-    'cierreInfo'
+    'cierreInfo',
     
     'simpleSection',
     'cierreSimpleSection',
@@ -80,8 +80,58 @@ tokens = [
     'state',
     'cierreState',
     
+    'phone',
+    'cierrePhone',
+    
+    'email',
+    'cierreEmail',
+    
+    'firstname',
+    'cierreFirstname',
+    
+    'surname',
+    'cierreSurname',
+    
+    'year',
+    'cierreYear',
+    
+    'holder',
+    'cierreHolder',
+    
+    'emphasis',
+    'cierreEmphasis',
+    
+    'listItem',
+    'cierreListItem',
+    
+    # 'link' TODO: ni idea como carajos se hace esto tampoco
+    
+    'tgroup',
+    'cierreTgroup',
+    
+    'thead',
+    'cierreThead',
+    
+    'tfoot',
+    'cierreTfoot',
+    
+    'tbody',
+    'cierreTbody',
+    
+    'row',
+    'cierreRow',
+    
+    'entry',
+    'cierreEntry',
+    
+    'entrytbl',
+    'cierreEntrytbl',
+    
+    
     # Contenido entre etiquetas
     'contenido_texto',
+      'digito',
+    'numeral',
     # 'URL'
 
 ]
@@ -150,6 +200,56 @@ def t_cierreStreet(t): r'</street>'; return (t);
 def t_state(t): r'<state>'; return (t);
 def t_cierreState(t): r'</state>'; return (t);
 
+def t_phone(t): r'<phone>'; return (t);
+def t_cierrePhone(t): r'</phone>'; return (t);
+
+def t_email(t): r'<email>'; return (t);
+def t_cierreEmail(t): r'</email>'; return (t);
+
+def t_firstname(t): r'<firstname>'; return (t);
+def t_cierreFirstname(t): r'</firstname>'; return (t);
+
+def t_surname(t): r'<surname>'; return (t);
+def t_cierreSurname(t): r'</surname>'; return (t);
+
+def t_year(t): r'<year>'; return (t);
+def t_cierreYear(t): r'</year>'; return (t);
+
+def t_holder(t): r'<holder>'; return (t);
+def t_cierreHolder(t): r'</holder>'; return (t);
+
+def t_emphasis(t): r'<emphasis>'; return (t);
+def t_cierreEmphasis(t): r'</emphasis>'; return (t);
+
+def t_listItem(t): r'<listitem>'; return (t);
+def t_cierreListItem(t): r'</listitem>'; return (t);
+
+def t_tgroup(t): r'<tgroup>'; return (t);
+def t_cierreTgroup(t): r'</tgroup>'; return (t);
+
+def t_thead(t): r'<thead>'; return (t);
+def t_cierreThead(t): r'</thead>'; return (t);
+
+def t_tfoot(t): r'<tfoot>'; return (t);
+def t_cierreTfoot(t): r'</tfoot>'; return (t);
+
+def t_tbody(t): r'<tbody>'; return (t);
+def t_cierreTbody(t): r'</tbody>'; return (t);
+
+def t_row(t): r'<row>'; return (t);
+def t_cierreRow(t): r'</row>'; return (t);
+
+def t_entry(t): r'<entry>'; return (t);
+def t_cierreEntry(t): r'</entry>'; return (t);
+
+def t_entrytbl(t): r'<entrytbl>'; return (t);
+def t_cierreEntrytbl(t): r'</entrytbl>'; return (t);
+
+
+
+
+
+
 
 
 
@@ -172,10 +272,10 @@ def t_protocolo(t): r'(https|http|ftps|ftp):\/\/'; return (t)
 # def t_cerrarcopyright(t): r'<\/copyright>'; return(t)
 
 # Resto
-# t_digito = r'\d+'
+t_digito = r'\d+'
 t_dospuntos = r'\:'
-# t_slash = r'/'
-# t_numeral = r'\#'
+t_slash = r'/'
+t_numeral = r'\#'
 
 # PLY ignorará espacios, saltos de lineas y tabs.
 t_ignore = ' \t'
