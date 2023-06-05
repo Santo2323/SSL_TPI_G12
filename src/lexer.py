@@ -8,8 +8,8 @@ contadorErrores = 0
 # Terminales
 tokens = [
     # simbolos
-    'dospuntos',
-    'slash',
+    # 'dospuntos',
+    # 'slash',
 
     # etiquetas
     'article',
@@ -106,8 +106,6 @@ tokens = [
     'listItem',
     'cierreListItem',
     
-    'link',
-    'cierreLink',
     
     'tgroup',
     'cierreTgroup',
@@ -129,16 +127,19 @@ tokens = [
     
     'entrytbl',
     'cierreEntrytbl',
+     
+    'cierreLink',
+    'link',
     
     # 'URL'
-	'URL',
-    'URL_relativa',
-    'URL_interna',
+	# 'URL',
+    # 'URL_relativa',
+    # 'URL_interna',
     
     # Contenido entre etiquetas
     'contenido_texto',
-    'digito',
-    'numeral',
+    # 'digito',
+    # 'numeral',
 ]
 
 # PLY detecta variables que empiecen con 't_'
@@ -250,11 +251,10 @@ def t_cierreEntry(t): r'</entry>'; return (t);
 def t_entrytbl(t): r'<entrytbl>'; return (t);
 def t_cierreEntrytbl(t): r'</entrytbl>'; return (t);
 
-def t_link(t):
-    r'<link\s+xlink:href\s*=\s*"((?:http[s]?|ftp[s]?):\/\/)?[^\s/$.?#].[^\s]*|(?:\./)?(?:[\w-]+/)*[\w-]+\.\w+(?:\?[^\s]*)?|\#[^\s]+"\s*>';
-    return (t);
+# def t_link(t):
+#     r'<link\s+xlink:href\s*=\s*"((?:http[s]?|ftp[s]?):\/\/)?[^\s/$.?#].[^\s]*|(?:\./)?(?:[\w-]+/)*[\w-]+\.\w+(?:\?[^\s]*)?|\#[^\s]+"\s*>';
+#     return (t);
 
-def t_cierreLink(t): r'</link>'; return (t);
 
 def t_mediaObject(t): r'<mediaobject>'; return (t);
 def t_cierreMediaObject(t): r'</mediaobject>'; return (t);
@@ -265,34 +265,39 @@ def t_cierreVideoObject(t): r'</videoobject>'; return (t);
 def t_imageObject(t): r'<imageobject>'; return (t);
 def t_cierreImageObject(t): r'</imageobject>'; return (t);
 
-def t_imageData(t):
-    r'<imagedata\s+fileref\s*=\s*"((?:http[s]?|ftp[s]?):\/\/)?[^\s/$.?#].[^\s]*|(?:\./)?(?:[\w-]+/)*[\w-]+\.\w+(?:\?[^\s]*)?|\#[^\s]+"\/>';
-    return (t);
+def t_imageData(t): r'<imagedata\s+fileref=["\'](?:(http[s]?|ftp[s]?)://)?(?:[\w.-]+/)*[\w.-]+\.[\w.-]+(?:\S+)?["\']\s*/>'; return (t);
 
-def t_videoData(t):
-    r'<videodata\s+fileref\s*=\s*"((?:http[s]?|ftp[s]?):\/\/)?[^\s/$.?#].[^\s]*|(?:\./)?(?:[\w-]+/)*[\w-]+\.\w+(?:\?[^\s]*)?|\#[^\s]+"\/>';
-    return (t);
+def t_videoData(t): r'<videodata\s+fileref=["\'](?:(http[s]?|ftp[s]?)://)?(?:[\w.-]+/)*[\w.-]+\.[\w.-]+(?:\S+)?["\']\s*/>'; return (t);
 
-def t_URL(t):
-    r'((?:http[s]?|ftp[s]?):\/\/)?[^\s/$.?#].[^\s]*|(?:\./)?(?:[\w-]+/)*[\w-]+\.\w+(?:\?[^\s]*)?|\#[^\s]+';
-    if '#' in t.value:
-        t.type = 'URL_interna'
-    elif t.value.startswith(('http://', 'https://', 'ftp://', 'ftps://')):
-        t.type = 'URL'
-    else:
-        t.type = 'URL_relativa'
-    return (t);
+# def t_videoData(t):
+#     r'<videodata\s+fileref\s*=\s*"((?:http[s]?|ftp[s]?):\/\/)?[^\s/$.?#].[^\s]*|(?:\./)?(?:[\w-]+/)*[\w-]+\.\w+(?:\?[^\s]*)?|\#[^\s]+"\/>';
+#     return (t);
+
+def t_link(t): r'<link\s+xlink:href=["\'](?:(http[s]?|ftp[s]?)://)?(?:[\w.-]+/)*[\w.-]+\.[\w.-]+(?:\S+)?["\']\s*>'; return (t)
+def t_cierreLink(t): r'</link>'; return (t);
+
+def t_contenido_texto(t): r'([\w\W])+?(?=<)'; return (t)
+
+# def t_URL(t):
+#     r'((?:http[s]?|ftp[s]?):\/\/)?[^\s/$.?#].[^\s]*|(?:\./)?(?:[\w-]+/)*[\w-]+\.\w+(?:\?[^\s]*)?|\#[^\s]+';
+#     if '#' in t.value:
+#         t.type = 'URL_interna'
+#     elif t.value.startswith(('http://', 'https://', 'ftp://', 'ftps://')):
+#         t.type = 'URL'
+#     else:
+#         t.type = 'URL_relativa'
+#     return (t);
 
 
 
 # Resto
-t_digito = r'\d+'
-t_dospuntos = r'\:'
-t_slash = r'/'
-t_numeral = r'\#'
+# t_digito = r'\d+'
+# t_dospuntos = r'\:'
+# t_slash = r'/'
+# t_numeral = r'\#'
 
 # PLY ignorará espacios, saltos de lineas y tabs.
-t_ignore = ' \t'
+t_ignore = ' \t\n'
 
 def t_error(t):
     global contadorErrores
@@ -305,7 +310,6 @@ def t_newline(t):
     r'\n+'
     t.lexer.lineno += len(t.value)
 
-def t_contenido_texto(t): r'([\w\W])+?(?=<)'; return (t)
 
 # Logica para menu
 menu_options = {

@@ -1,5 +1,4 @@
-('C:\\Users\\Usuario\\Desktop\\Sintaxis y Semantica de los '
- 'Lenguajes\\build\\lexer\\lexer.pkg',
+('C:\\Users\\Usuario\\Desktop\\sintaxis\\SSL_TPI_G12\\build\\lexer\\lexer.pkg',
  {'BINARY': True,
   'DATA': True,
   'EXECUTABLE': True,
@@ -9,28 +8,22 @@
   'PYZ': False,
   'SPLASH': True},
  [('PYZ-00.pyz',
-   'C:\\Users\\Usuario\\Desktop\\Sintaxis y Semantica de los '
-   'Lenguajes\\build\\lexer\\PYZ-00.pyz',
+   'C:\\Users\\Usuario\\Desktop\\sintaxis\\SSL_TPI_G12\\build\\lexer\\PYZ-00.pyz',
    'PYZ'),
   ('struct',
-   'C:\\Users\\Usuario\\Desktop\\Sintaxis y Semantica de los '
-   'Lenguajes\\build\\lexer\\localpycs\\struct.pyc',
+   'C:\\Users\\Usuario\\Desktop\\sintaxis\\SSL_TPI_G12\\build\\lexer\\localpycs\\struct.pyc',
    'PYMODULE'),
   ('pyimod01_archive',
-   'C:\\Users\\Usuario\\Desktop\\Sintaxis y Semantica de los '
-   'Lenguajes\\build\\lexer\\localpycs\\pyimod01_archive.pyc',
+   'C:\\Users\\Usuario\\Desktop\\sintaxis\\SSL_TPI_G12\\build\\lexer\\localpycs\\pyimod01_archive.pyc',
    'PYMODULE'),
   ('pyimod02_importers',
-   'C:\\Users\\Usuario\\Desktop\\Sintaxis y Semantica de los '
-   'Lenguajes\\build\\lexer\\localpycs\\pyimod02_importers.pyc',
+   'C:\\Users\\Usuario\\Desktop\\sintaxis\\SSL_TPI_G12\\build\\lexer\\localpycs\\pyimod02_importers.pyc',
    'PYMODULE'),
   ('pyimod03_ctypes',
-   'C:\\Users\\Usuario\\Desktop\\Sintaxis y Semantica de los '
-   'Lenguajes\\build\\lexer\\localpycs\\pyimod03_ctypes.pyc',
+   'C:\\Users\\Usuario\\Desktop\\sintaxis\\SSL_TPI_G12\\build\\lexer\\localpycs\\pyimod03_ctypes.pyc',
    'PYMODULE'),
   ('pyimod04_pywin32',
-   'C:\\Users\\Usuario\\Desktop\\Sintaxis y Semantica de los '
-   'Lenguajes\\build\\lexer\\localpycs\\pyimod04_pywin32.pyc',
+   'C:\\Users\\Usuario\\Desktop\\sintaxis\\SSL_TPI_G12\\build\\lexer\\localpycs\\pyimod04_pywin32.pyc',
    'PYMODULE'),
   ('pyiboot01_bootstrap',
    'C:\\Users\\Usuario\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python311\\site-packages\\PyInstaller\\loader\\pyiboot01_bootstrap.py',
@@ -39,8 +32,7 @@
    'C:\\Users\\Usuario\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python311\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth_inspect.py',
    'PYSOURCE'),
   ('lexer',
-   'C:\\Users\\Usuario\\Desktop\\Sintaxis y Semantica de los '
-   'Lenguajes\\src\\lexer.py',
+   'C:\\Users\\Usuario\\Desktop\\sintaxis\\SSL_TPI_G12\\src\\lexer.py',
    'PYSOURCE'),
   ('python311.dll',
    'C:\\Program '
@@ -74,13 +66,13 @@
    'C:\\Program '
    'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.11_3.11.1008.0_x64__qbz5n2kfra8p0\\DLLs\\_socket.pyd',
    'EXTENSION'),
-  ('unicodedata.pyd',
-   'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.11_3.11.1008.0_x64__qbz5n2kfra8p0\\DLLs\\unicodedata.pyd',
-   'EXTENSION'),
   ('_ssl.pyd',
    'C:\\Program '
    'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.11_3.11.1008.0_x64__qbz5n2kfra8p0\\DLLs\\_ssl.pyd',
+   'EXTENSION'),
+  ('unicodedata.pyd',
+   'C:\\Program '
+   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.11_3.11.1008.0_x64__qbz5n2kfra8p0\\DLLs\\unicodedata.pyd',
    'EXTENSION'),
   ('libcrypto-1_1.dll',
    'C:\\Program '
@@ -91,8 +83,7 @@
    'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.11_3.11.1008.0_x64__qbz5n2kfra8p0\\DLLs\\libssl-1_1.dll',
    'BINARY'),
   ('base_library.zip',
-   'C:\\Users\\Usuario\\Desktop\\Sintaxis y Semantica de los '
-   'Lenguajes\\build\\lexer\\base_library.zip',
+   'C:\\Users\\Usuario\\Desktop\\sintaxis\\SSL_TPI_G12\\build\\lexer\\base_library.zip',
    'DATA')],
  False,
  False,

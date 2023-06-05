@@ -1,6 +1,5 @@
-(['C:\\Users\\Usuario\\Desktop\\Sintaxis y Semantica de los '
-  'Lenguajes\\src\\lexer.py'],
- ['C:\\Users\\Usuario\\Desktop\\Sintaxis y Semantica de los Lenguajes\\src'],
+(['C:\\Users\\Usuario\\Desktop\\sintaxis\\SSL_TPI_G12\\src\\lexer.py'],
+ ['C:\\Users\\Usuario\\Desktop\\sintaxis\\SSL_TPI_G12\\src'],
  ['codecs'],
  ['C:\\Users\\Usuario\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python311\\site-packages\\_pyinstaller_hooks_contrib\\hooks\\stdhooks',
   'C:\\Users\\Usuario\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python311\\site-packages\\_pyinstaller_hooks_contrib\\hooks\\stdhooks\\__pycache__',
@@ -20,8 +19,7 @@
    'C:\\Users\\Usuario\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python311\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth_inspect.py',
    'PYSOURCE'),
   ('lexer',
-   'C:\\Users\\Usuario\\Desktop\\Sintaxis y Semantica de los '
-   'Lenguajes\\src\\lexer.py',
+   'C:\\Users\\Usuario\\Desktop\\sintaxis\\SSL_TPI_G12\\src\\lexer.py',
    'PYSOURCE')],
  [('inspect',
    'C:\\Program '
@@ -375,10 +373,6 @@
    'C:\\Program '
    'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.11_3.11.1008.0_x64__qbz5n2kfra8p0\\Lib\\ast.py',
    'PYMODULE'),
-  ('stringprep',
-   'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.11_3.11.1008.0_x64__qbz5n2kfra8p0\\Lib\\stringprep.py',
-   'PYMODULE'),
   ('tracemalloc',
    'C:\\Program '
    'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.11_3.11.1008.0_x64__qbz5n2kfra8p0\\Lib\\tracemalloc.py',
@@ -423,6 +417,10 @@
    'C:\\Program '
    'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.11_3.11.1008.0_x64__qbz5n2kfra8p0\\Lib\\http\\client.py',
    'PYMODULE'),
+  ('_py_abc',
+   'C:\\Program '
+   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.11_3.11.1008.0_x64__qbz5n2kfra8p0\\Lib\\_py_abc.py',
+   'PYMODULE'),
   ('subprocess',
    'C:\\Program '
    'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.11_3.11.1008.0_x64__qbz5n2kfra8p0\\Lib\\subprocess.py',
@@ -431,23 +429,21 @@
    'C:\\Program '
    'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.11_3.11.1008.0_x64__qbz5n2kfra8p0\\Lib\\signal.py',
    'PYMODULE'),
-  ('_py_abc',
+  ('stringprep',
    'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.11_3.11.1008.0_x64__qbz5n2kfra8p0\\Lib\\_py_abc.py',
+   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.11_3.11.1008.0_x64__qbz5n2kfra8p0\\Lib\\stringprep.py',
    'PYMODULE'),
   ('helpers',
-   'C:\\Users\\Usuario\\Desktop\\Sintaxis y Semantica de los '
-   'Lenguajes\\src\\helpers.py',
+   'C:\\Users\\Usuario\\Desktop\\sintaxis\\SSL_TPI_G12\\src\\helpers.py',
    'PYMODULE'),
   ('logicaMenu',
-   'C:\\Users\\Usuario\\Desktop\\Sintaxis y Semantica de los '
-   'Lenguajes\\src\\logicaMenu.py',
+   'C:\\Users\\Usuario\\Desktop\\sintaxis\\SSL_TPI_G12\\src\\logicaMenu.py',
    'PYMODULE'),
   ('ply.lex',
-   'C:\\Users\\Usuario\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python311\\site-packages\\ply\\lex.py',
+   'C:\\Users\\Usuario\\Desktop\\sintaxis\\SSL_TPI_G12\\src\\ply\\lex.py',
    'PYMODULE'),
   ('ply',
-   'C:\\Users\\Usuario\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python311\\site-packages\\ply\\__init__.py',
+   'C:\\Users\\Usuario\\Desktop\\sintaxis\\SSL_TPI_G12\\src\\ply\\__init__.py',
    'PYMODULE')],
  [('python311.dll',
    'C:\\Program '
@@ -481,13 +477,13 @@
    'C:\\Program '
    'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.11_3.11.1008.0_x64__qbz5n2kfra8p0\\DLLs\\_socket.pyd',
    'EXTENSION'),
-  ('unicodedata.pyd',
-   'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.11_3.11.1008.0_x64__qbz5n2kfra8p0\\DLLs\\unicodedata.pyd',
-   'EXTENSION'),
   ('_ssl.pyd',
    'C:\\Program '
    'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.11_3.11.1008.0_x64__qbz5n2kfra8p0\\DLLs\\_ssl.pyd',
+   'EXTENSION'),
+  ('unicodedata.pyd',
+   'C:\\Program '
+   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.11_3.11.1008.0_x64__qbz5n2kfra8p0\\DLLs\\unicodedata.pyd',
    'EXTENSION'),
   ('libcrypto-1_1.dll',
    'C:\\Program '
@@ -500,7 +496,6 @@
  [],
  [],
  [('base_library.zip',
-   'C:\\Users\\Usuario\\Desktop\\Sintaxis y Semantica de los '
-   'Lenguajes\\build\\lexer\\base_library.zip',
+   'C:\\Users\\Usuario\\Desktop\\sintaxis\\SSL_TPI_G12\\build\\lexer\\base_library.zip',
    'DATA')],
  [])

@@ -1,5 +1,4 @@
-('C:\\Users\\Usuario\\Desktop\\Sintaxis y Semantica de los '
- 'Lenguajes\\build\\lexer\\PYZ-00.pyz',
+('C:\\Users\\Usuario\\Desktop\\sintaxis\\SSL_TPI_G12\\build\\lexer\\PYZ-00.pyz',
  [('_compat_pickle',
    'C:\\Program '
    'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.11_3.11.1008.0_x64__qbz5n2kfra8p0\\Lib\\_compat_pickle.py',
@@ -189,8 +188,7 @@
    'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.11_3.11.1008.0_x64__qbz5n2kfra8p0\\Lib\\hashlib.py',
    'PYMODULE'),
   ('helpers',
-   'C:\\Users\\Usuario\\Desktop\\Sintaxis y Semantica de los '
-   'Lenguajes\\src\\helpers.py',
+   'C:\\Users\\Usuario\\Desktop\\sintaxis\\SSL_TPI_G12\\src\\helpers.py',
    'PYMODULE'),
   ('http',
    'C:\\Program '
@@ -301,8 +299,7 @@
    'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.11_3.11.1008.0_x64__qbz5n2kfra8p0\\Lib\\logging\\__init__.py',
    'PYMODULE'),
   ('logicaMenu',
-   'C:\\Users\\Usuario\\Desktop\\Sintaxis y Semantica de los '
-   'Lenguajes\\src\\logicaMenu.py',
+   'C:\\Users\\Usuario\\Desktop\\sintaxis\\SSL_TPI_G12\\src\\logicaMenu.py',
    'PYMODULE'),
   ('lzma',
    'C:\\Program '
@@ -333,10 +330,10 @@
    'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.11_3.11.1008.0_x64__qbz5n2kfra8p0\\Lib\\pickle.py',
    'PYMODULE'),
   ('ply',
-   'C:\\Users\\Usuario\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python311\\site-packages\\ply\\__init__.py',
+   'C:\\Users\\Usuario\\Desktop\\sintaxis\\SSL_TPI_G12\\src\\ply\\__init__.py',
    'PYMODULE'),
   ('ply.lex',
-   'C:\\Users\\Usuario\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python311\\site-packages\\ply\\lex.py',
+   'C:\\Users\\Usuario\\Desktop\\sintaxis\\SSL_TPI_G12\\src\\ply\\lex.py',
    'PYMODULE'),
   ('pprint',
    'C:\\Program '
