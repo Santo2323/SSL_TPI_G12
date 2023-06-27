@@ -1,0 +1,8 @@
+Producciones analizadas por el parser
+-----------------
+1) Prod. ARTICLE --> | [ARTICLE, LexToken(article,'<article>',1,19), LexToken(contenido_texto,'hasdfas\n',1,29), LexToken(cierreArticle,'</article>',1,37)]
+-------------
+2) Prod. Sigma --> | [SIGMA, LexToken(doctype,'<!DOCTYPE article>',1,0), ARTICLE]
+-------------
+-------------
+Total de tokens analizados: 2.

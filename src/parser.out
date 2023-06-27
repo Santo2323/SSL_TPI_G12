@@ -1,0 +1,229 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    abstract
+    address
+    author
+    cierreAbstract
+    cierreAddress
+    cierreAuthor
+    cierreCity
+    cierreComment
+    cierreCopyright
+    cierreDate
+    cierreEmail
+    cierreEmphasis
+    cierreEntry
+    cierreEntrytbl
+    cierreFirstname
+    cierreHolder
+    cierreImageObject
+    cierreImportant
+    cierreInfo
+    cierreInformalTable
+    cierreItemizedlist
+    cierreLink
+    cierreListItem
+    cierreMediaObject
+    cierrePara
+    cierrePhone
+    cierreRow
+    cierreSection
+    cierreSimpara
+    cierreSimpleSection
+    cierreState
+    cierreStreet
+    cierreSurname
+    cierreTbody
+    cierreTfoot
+    cierreTgroup
+    cierreThead
+    cierreTitle
+    cierreVideoObject
+    cierreYear
+    city
+    comment
+    copyright
+    date
+    email
+    emphasis
+    entry
+    entrytbl
+    firstname
+    holder
+    imageData
+    imageObject
+    important
+    info
+    informalTable
+    itemizedlist
+    link
+    listItem
+    mediaObject
+    para
+    phone
+    row
+    section
+    simpara
+    simpleSection
+    state
+    street
+    surname
+    tbody
+    tfoot
+    tgroup
+    thead
+    title
+    videoData
+    videoObject
+    year
+
+Grammar
+
+Rule 0     S' -> SIGMA
+Rule 1     SIGMA -> doctype ARTICLE
+Rule 2     ARTICLE -> article contenido_texto cierreArticle
+
+Terminals, with rules where they appear
+
+abstract             : 
+address              : 
+article              : 2
+author               : 
+cierreAbstract       : 
+cierreAddress        : 
+cierreArticle        : 2
+cierreAuthor         : 
+cierreCity           : 
+cierreComment        : 
+cierreCopyright      : 
+cierreDate           : 
+cierreEmail          : 
+cierreEmphasis       : 
+cierreEntry          : 
+cierreEntrytbl       : 
+cierreFirstname      : 
+cierreHolder         : 
+cierreImageObject    : 
+cierreImportant      : 
+cierreInfo           : 
+cierreInformalTable  : 
+cierreItemizedlist   : 
+cierreLink           : 
+cierreListItem       : 
+cierreMediaObject    : 
+cierrePara           : 
+cierrePhone          : 
+cierreRow            : 
+cierreSection        : 
+cierreSimpara        : 
+cierreSimpleSection  : 
+cierreState          : 
+cierreStreet         : 
+cierreSurname        : 
+cierreTbody          : 
+cierreTfoot          : 
+cierreTgroup         : 
+cierreThead          : 
+cierreTitle          : 
+cierreVideoObject    : 
+cierreYear           : 
+city                 : 
+comment              : 
+contenido_texto      : 2
+copyright            : 
+date                 : 
+doctype              : 1
+email                : 
+emphasis             : 
+entry                : 
+entrytbl             : 
+error                : 
+firstname            : 
+holder               : 
+imageData            : 
+imageObject          : 
+important            : 
+info                 : 
+informalTable        : 
+itemizedlist         : 
+link                 : 
+listItem             : 
+mediaObject          : 
+para                 : 
+phone                : 
+row                  : 
+section              : 
+simpara              : 
+simpleSection        : 
+state                : 
+street               : 
+surname              : 
+tbody                : 
+tfoot                : 
+tgroup               : 
+thead                : 
+title                : 
+videoData            : 
+videoObject          : 
+year                 : 
+
+Nonterminals, with rules where they appear
+
+ARTICLE              : 1
+SIGMA                : 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . SIGMA
+    (1) SIGMA -> . doctype ARTICLE
+
+    doctype         shift and go to state 2
+
+    SIGMA                          shift and go to state 1
+
+state 1
+
+    (0) S' -> SIGMA .
+
+
+
+state 2
+
+    (1) SIGMA -> doctype . ARTICLE
+    (2) ARTICLE -> . article contenido_texto cierreArticle
+
+    article         shift and go to state 4
+
+    ARTICLE                        shift and go to state 3
+
+state 3
+
+    (1) SIGMA -> doctype ARTICLE .
+
+    $end            reduce using rule 1 (SIGMA -> doctype ARTICLE .)
+
+
+state 4
+
+    (2) ARTICLE -> article . contenido_texto cierreArticle
+
+    contenido_texto shift and go to state 5
+
+
+state 5
+
+    (2) ARTICLE -> article contenido_texto . cierreArticle
+
+    cierreArticle   shift and go to state 6
+
+
+state 6
+
+    (2) ARTICLE -> article contenido_texto cierreArticle .
+
+    $end            reduce using rule 2 (ARTICLE -> article contenido_texto cierreArticle .)
+

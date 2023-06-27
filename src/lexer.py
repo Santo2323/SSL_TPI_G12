@@ -12,8 +12,12 @@ tokens = [
     # 'slash',
 
     # etiquetas
+    
+    
     'article',
     'cierreArticle',
+    
+    'doctype',
     
     'section',
     'cierreSection',
@@ -154,6 +158,7 @@ tokens = [
 # Definición de símbolos atómicos #
 
 # Etiquetas
+def t_doctype(t): r'<!DOCTYPE article>'; return(t);
 
 def t_article(t): r'<article>'; return(t);
 def t_cierreArticle(t): r'</article>'; return(t);
@@ -163,6 +168,7 @@ def t_cierreSection(t): r'</section>';  return(t);
 
 def t_info(t): r'<info>'; return(t);
 def t_cierreInfo(t): r'</info>'; return(t);   
+ 
 
 def t_simpleSection(t): r'<simplesect>'; return(t);
 def t_cierreSimpleSection(t): r'</simplesect>'; return(t);
@@ -191,6 +197,10 @@ def t_cierreInformalTable(t): r'</informaltable>'; return (t);
 def t_comment(t): r'<comment>'; return (t);
 def t_cierreComment(t): r'</comment>'; return (t);
 
+def t_abstract(t): r'<abstract>'; return (t);
+def t_cierreAbstract(t): r'</abstract>'; return (t);
+
+
 def t_author(t): r'<author>'; return (t);
 def t_cierreAuthor(t): r'</author>'; return (t);
 
@@ -202,6 +212,9 @@ def t_cierreCopyright(t): r'</copyright>'; return (t);
 
 def t_street(t): r'<street>'; return (t);
 def t_cierreStreet(t): r'</street>'; return (t);
+
+def t_city(t): r'<city>'; return (t);
+def t_cierreCity(t): r'</city>'; return (t);
 
 def t_state(t): r'<state>'; return (t);
 def t_cierreState(t): r'</state>'; return (t);
