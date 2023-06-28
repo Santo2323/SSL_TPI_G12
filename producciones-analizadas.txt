@@ -1,8 +1,66 @@
-Producciones analizadas por el parser
------------------
-1) Prod. ARTICLE --> | [ARTICLE, LexToken(article,'<article>',1,19), LexToken(contenido_texto,'hasdfas\n',1,29), LexToken(cierreArticle,'</article>',1,37)]
--------------
-2) Prod. Sigma --> | [SIGMA, LexToken(doctype,'<!DOCTYPE article>',1,0), ARTICLE]
--------------
--------------
-Total de tokens analizados: 2.
+Producciones analizadas por el parser:
+====================
+1) Prod. ELEM_TITLE --> | [ELEM_TITLE, LexToken(contenido_texto,'Trabajo Práctico Integrador: Diseño e implementación de Lexer y Parser',1,46)]
+---------------
+2) Prod. CONT_TITLE --> | [CONT_TITLE, ELEM_TITLE]
+---------------
+3) Prod. TITLE --> | [TITLE, LexToken(title,'<title>',1,39), CONT_TITLE, LexToken(cierreTitle,'</title>',1,116)]
+---------------
+4) Prod. ELEM_INFO --> | [ELEM_INFO, TITLE]
+---------------
+5) Prod. ELEM_TITLE --> | [ELEM_TITLE, LexToken(contenido_texto,'Ejemplo TPI',1,148)]
+---------------
+6) Prod. CONT_TITLE --> | [CONT_TITLE, ELEM_TITLE]
+---------------
+7) Prod. TITLE --> | [TITLE, LexToken(title,'<title>',1,141), CONT_TITLE, LexToken(cierreTitle,'</title>',1,159)]
+---------------
+8) Prod. ELEM_PARA --> | [ELEM_PARA, LexToken(contenido_texto,'Aceptor DocBook/XML y Conversor a HTML',1,177)]
+---------------
+9) Prod. CONT_PARA --> | [CONT_PARA, ELEM_PARA]
+---------------
+10) Prod. PARA --> | [PARA, LexToken(para,'<para>',1,171), CONT_PARA, LexToken(cierrePara,'</para>',1,215)]
+---------------
+11) Prod. CONT_2 --> | [CONT_2, LexToken(contenido_texto,'Simple Parrafo: Aceptor DocBook/XML y Conversor a HTML',1,235)]
+---------------
+12) Prod. CONT_SECL --> | [CONT_SECL, CONT_2]
+---------------
+13) Prod. SIMPARA --> | [SIMPARA, LexToken(simpara,'<simpara>',1,226), CONT_SECL, LexToken(cierreSimpara,'</simpara>',1,289)]
+---------------
+14) Prod. PARAS --> | [PARAS, SIMPARA]
+---------------
+15) Prod. PARAS --> | [PARAS, PARA, PARAS]
+---------------
+16) Prod. ABSTRACT --> | [ABSTRACT, LexToken(abstract,'<abstract>',1,127), TITLE, PARAS, LexToken(cierreAbstract,'</abstract>',1,302)]
+---------------
+17) Prod. ELEM_INFO --> | [ELEM_INFO, ABSTRACT]
+---------------
+18) Prod. CONT_3 --> | [CONT_3, LexToken(contenido_texto,'Rodrrgo',1,339)]
+---------------
+19) Prod. CONT_VAR --> | [CONT_VAR, CONT_3]
+---------------
+20) Prod. FIRSTNAME --> | [FIRSTNAME, LexToken(firstname,'<firstname>',1,328), CONT_VAR, LexToken(cierreFirstname,'</firstname>',1,346)]
+---------------
+21) Prod. CONT_3 --> | [CONT_3, LexToken(contenido_texto,'Vigll',1,371)]
+---------------
+22) Prod. CONT_VAR --> | [CONT_VAR, CONT_3]
+---------------
+23) Prod. SURNAME --> | [SURNAME, LexToken(surname,'<surname>',1,362), CONT_VAR, LexToken(cierreSurname,'</surname>',1,376)]
+---------------
+24) Prod. CONT_AUTHOR --> | [CONT_AUTHOR, FIRSTNAME, SURNAME]
+---------------
+25) Prod. AUTHOR --> | [AUTHOR, LexToken(author,'<author>',1,316), CONT_AUTHOR, LexToken(cierreAuthor,'</author>',1,389)]
+---------------
+26) Prod. ELEM_INFO --> | [ELEM_INFO, AUTHOR]
+---------------
+27) Prod. CONT_3 --> | [CONT_3, LexToken(contenido_texto,'2023',1,407)]
+---------------
+28) Prod. CONT_VAR --> | [CONT_VAR, CONT_3]
+---------------
+29) Prod. DATE --> | [DATE, LexToken(date,'<date>',1,401), CONT_VAR, LexToken(cierreDate,'</date>',1,411)]
+---------------
+30) Prod. ELEM_INFO --> | [ELEM_INFO, DATE]
+---------------
+31) Error parser --> | LexToken(contenido_texto,'2023',1,432)
+---------------
+====================
+Total de tokens analizados: 31.

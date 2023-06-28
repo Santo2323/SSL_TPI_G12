@@ -13,11 +13,10 @@ tokens = [
 
     # etiquetas
     
+    'doctype',
     
     'article',
     'cierreArticle',
-    
-    'doctype',
     
     'section',
     'cierreSection',
