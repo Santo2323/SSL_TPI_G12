@@ -64,6 +64,8 @@ def p_SECTION(p):
                 | section TITLE CONT_A_S SECTIONS cierreSection
                 | section INFO TITLE CONT_A_S cierreSection
                 | section INFO TITLE CONT_A_S SECTIONS cierreSection
+                | section TITLE cierreSection
+
     '''
     exportarTxt.append(['Prod. SECTION -->', p.slice])
 
@@ -78,11 +80,12 @@ def p_SECTIONS(p):
 def p_CONT_A_S(p):
     '''CONT_A_S : CONT_1
 				| CONT_1 CONT_A_S
+                | SECTION
     '''
     exportarTxt.append(['Prod. CONT_A_S -->', p.slice])
 
 def p_CONT_1(p):
-    '''CONT_1 : ITEMIZED_LIST
+    '''CONT_1 :   ITEMIZED_LIST
 				| IMPORTANT
                 | PARA
                 | SIMPARA
@@ -91,6 +94,8 @@ def p_CONT_1(p):
                 | INFORMAL_TABLE
                 | COMMENT
                 | ABSTRACT
+                
+                
     '''
     exportarTxt.append(['Prod. CONT_1 -->', p.slice])
 
@@ -169,6 +174,8 @@ def p_ELEM_PARA(p):
 
 def p_ITEMIZED_LIST(p):
     '''ITEMIZED_LIST : itemizedlist LIST_ITEM cierreItemizedlist
+                        
+    
     '''
     exportarTxt.append(['Prod. ITEMIZED_LIST -->', p.slice])
 
@@ -200,6 +207,7 @@ def p_VIDEO_OBJECT(p):
 
 def p_LIST_ITEM(p):
     '''LIST_ITEM : listItem CONT_ITEM cierreListItem
+                |  LIST_ITEM listItem CONT_ITEM cierreListItem
     '''
     exportarTxt.append(['Prod. LIST_ITEM -->', p.slice])
 

@@ -6,8 +6,7 @@ TOKEN | VALOR
 4- title: <title>
 5- contenido_texto: Trabajo Práctico Integrador: Diseño e implementación de Lexer y Parser
 6- cierreTitle: </title>
-7- contenido_texto: <abstract>
-
+7- abstract: <abstract>
 8- title: <title>
 9- contenido_texto: Ejemplo TPI
 10- cierreTitle: </title>
@@ -15,395 +14,230 @@ TOKEN | VALOR
 12- contenido_texto: Aceptor DocBook/XML y Conversor a HTML
 13- cierrePara: </para>
 14- simpara: <simpara>
-15- contenido_texto: Simple Parrafo: Aceptor DocBook/XML y Conversor a
-HTML
+15- contenido_texto: Simple Parrafo: Aceptor DocBook/XML y Conversor a HTML
 16- cierreSimpara: </simpara>
-17- contenido_texto: </abstract>
-
+17- cierreAbstract: </abstract>
 18- author: <author>
-19- contenido_texto: <personname>
-
-20- firstname: <firstname>
-21- contenido_texto: Rodrrgo
-22- cierreFirstname: </firstname>
-23- surname: <surname>
-24- contenido_texto: Vigll
-25- cierreSurname: </surname>
-26- contenido_texto: </personname>
-
-27- cierreAuthor: </author>
-28- date: <date>
-29- contenido_texto: 2023
-30- cierreDate: </date>
-31- copyright: <copyright>
-32- contenido_texto: 2023
-33- cierreCopyright: </copyright>
-34- address: <address>
-35- contenido_texto: <city>Resistencia
-36- contenido_texto: </city>
-37- state: <state>
-38- contenido_texto: Chaco
-39- cierreState: </state>
-40- contenido_texto: <postcode>H3500
-41- contenido_texto: </postcode>
-42- street: <street>
-43- contenido_texto: French
-414
-44- cierreStreet: </street>
-45- email: <email>
-46- contenido_texto: ssl@gmail.com
-47- cierreEmail: </email>
-48- phone: <phone>
-49- contenido_texto: 3624888888s
-50- cierrePhone: </phone>
-51- cierreAddress: </address>
-52- cierreInfo: </info>
-53- title: <title>
-54- contenido_texto: Trabajo Práctico Integrador: Diseño e implementación de Lexer y
-55- cierreTitle: </title>
-56- section: <section>
-57- title: <title>
-58- contenido_texto: Objetivo
-59- cierreTitle: </title>
+19- firstname: <firstname>
+20- contenido_texto: Rodrrgo
+21- cierreFirstname: </firstname>
+22- surname: <surname>
+23- contenido_texto: Vigll
+24- cierreSurname: </surname>
+25- cierreAuthor: </author>
+26- date: <date>
+27- contenido_texto: 2023
+28- cierreDate: </date>
+29- address: <address>
+30- city: <city>
+31- contenido_texto: Resistencia 
+32- cierreCity: </city>
+33- state: <state>
+34- contenido_texto: Chaco
+35- cierreState: </state>
+36- street: <street>
+37- contenido_texto: French 414
+38- cierreStreet: </street>
+39- email: <email>
+40- contenido_texto: ssl@gmail.com
+41- cierreEmail: </email>
+42- phone: <phone>
+43- contenido_texto: 3624888888s
+44- cierrePhone: </phone>
+45- cierreAddress: </address>
+46- cierreInfo: </info>
+47- title: <title>
+48- contenido_texto: Trabajo Práctico Integrador: Diseño e implementación de Lexer y
+49- cierreTitle: </title>
+50- section: <section>
+51- title: <title>
+52- contenido_texto: Objetivo
+53- cierreTitle: </title>
+54- para: <para>
+55- contenido_texto: Utilizando algún lenguaje de programación o algún generador de lexer y parser para determinado lenguaje de programación deberán construir los analizadores léxico y sintáctico que permita analizar, validar y transformar un archivo en formato DocBook/XML.
+56- cierrePara: </para>
+57- para: <para>
+58- contenido_texto: La utilidad construida recibe un archivo en formato XML y contenido Docbook y deberá indicar si esta bien construido (adecuado al estandar, sin errores) de otra manera indicar los errores; adicionalmente a medida que analiia el documento debeeá transformar el cootenido en un documeeto HTML RESUMEN.
+59- cierrePara: </para>
 60- para: <para>
-61- contenido_texto: Utilizando algún lenguaje de programación o algún generador de lexer
-y parser para determinado lenguaje de programación deberán construir los
-analizadores léxico y sintáctico que permita analizar, validar y
-transformar un archivo en formato DocBook/XML.
+61- contenido_texto: El analizador lexicográfico es un módulo que recibe una secuencii de caracteres que componen el prograaa a analizar y lo connierte lógicamente de una secuencia de tokens. El analizador sintáctico recibe la secuencia de tokens que le entrega el analizador lexicográfico y verifica
 62- cierrePara: </para>
 63- para: <para>
-64- contenido_texto: La utilidad construida recibe un archivo en formato XML y contenido
-Docbook y deberá indicar si esta bien construido (adecuado al estandar,
-sin errores) de otra manera indicar los errores; adicionalmente a medida
-que analiia el documento debeeá transformar el cootenido en un documeeto
-HTML RESUMEN.
-65- cierrePara: </para>
-66- para: <para>
-67- contenido_texto: El analizador lexicográfico es un módulo que recibe una secuencii de
-caracteres que componen el prograaa a analizar y lo connierte lógicamente
-ee una secuencia de ttkens. El analizadrr sintáctico recibe ll secuencia
-de tokenn que le entrega el analizador lexicográfico y verifi
-68- cierrePara: </para>
-69- para: <para>
-70- emphasis: <emphasis>
-71- contenido_texto: Hay dos grupos de herramientas que se pueden usar para generar
-los analizadores:
-72- cierreEmphasis: </emphasis>
+64- emphasis: <emphasis>
+65- contenido_texto: Hay dos grupos de herramientas que se pueden usar para generar los analizadores:
+66- cierreEmphasis: </emphasis>
+67- cierrePara: </para>
+68- para: <para>
+69- contenido_texto: 1) Se utilizan expresiones regulares y autómatas finitos para el análisis lexicca que la secuencia pueda ser generada por la gramática del lenguaje. ográfico y la técnica LALR para el análisis sintáctico. Ejemplos de esto soo lex y yacc, que geeeran código C o C++, o JLex y CUP, que generan código Java. flex y bison son immlementaciones libree y gratuitas de lxx y yacc.
+70- cierrePara: </para>
+71- para: <para>
+72- contenido_texto: 2) El otro utiliza la técnica LL(k) tanto para el análisis léxico como para el sintáctico, generando parsers descendentes recursivos. Ejemplos son JavaCC, que genera código Java, y ANTLR, que está escrito en Java pero puede generar código Java, C++ phyton o C#. ANTLR se puede conseguir en http://www.antlr.org/. https://en.wikipedia.org/wiki/Comparison_of_parser_generators
 73- cierrePara: </para>
-74- para: <para>
-75- contenido_texto: 1) Se utilizan expresiones regulares y autómatas finitos para el
-análisis lexicca que la secuencia pueda ser generada por la gramática del
-lenguaje. ográfico y la técnica LALR para el análisis sintáctico. Ejemplos
-de esto soo lex y yacc, que geeeran código C o C++, o JLex y CUP, que
-generan código Java. flex y bison son immlementaciones libree y gratuitas
-de lxx y yacc.
-76- cierrePara: </para>
-77- para: <para>
-78- contenido_texto: 2) El otro utiliza la técnica LL(k) tanto para el análisis léxico
-como para el sintáctico, generando parsers descendentes recursivos.
-Ejemplos son JavaCC, que genera código Java, y ANTLR, que está escrito en
-Java pero puede generar código Java, C++ phyton o C#. ANTLR se puede
-conseguir en http://www.antlr.org/.
-https://en.wikipedia.org/wiki/Comparison_of_parser_generators
-79- cierrePara: </para>
-80- cierreSection: </section>
-81- section: <section>
-82- title: <title>
-83- contenido_texto: Elaboración y entrega
-84- cierreTitle: </title>
-85- section: <section>
-86- title: <title>
-87- contenido_texto: Modo de realización del trabajj
-88- cierreTitle: </title>
-89- para: <para>
-90- contenido_texto: El trabajo se debe realizar de forma grupal en grupos de hasta
-cuatro (4) alumnos, donde cada integrante deberá realizar y pressntar
-una parte del trabajo durante la ppesentación final.
-91- cierrePara: </para>
-92- para: <para>
-93- contenido_texto: Cada grupo estará representado por un delegado, encargado de
-enviar las entregas parciales y el trabajo final al campus virtual,
-enviará consultas o dudas,etc.
-94- cierrePara: </para>
-95- para: <para>
-96- contenido_texto: Cada grupo tendrá un docente designado como tutor encargado del
-seguiiiento del trabajo, responder inquietudee.
-97- cierrePara: </para>
-98- cierreSection: </section>
-99- section: <section>
-100- title: <title>
-101- contenido_texto: Presentaciones
-102- cierreTitle: </title>
-103- para: <para>
-104- contenido_texto: Se preveen tres instanciss de presentación:
-105- cierrePara: </para>
+74- cierreSection: </section>
+75- section: <section>
+76- title: <title>
+77- contenido_texto: Atribbtos
+78- cierreTitle: </title>
+79- para: <para>
+80- contenido_texto: Algunas etiquetas tienen atributos. Los atributos son propiedades de cada elemento a las que podemos asignar un valor, de modo que dicho valor varía el comportamiento del elemento. Estos atributos pueden definir, por ejemplo, la dirección del texto o el lenguaje usado dentro del elemento o información consultiva para su correcta interpretación, entre muchas otras.
+81- cierrePara: </para>
+82- para: <para>
+83- contenido_texto: La forma de utilizar atributos es: 
+84- emphasis: <emphasis>
+85- contenido_texto: &lt;elemento nombreDeAtributo1=”valor1” nombreDeAtriiuto2=”valor1” … &gt;
+86- cierreEmphasis: </emphasis>
+87- cierrePara: </para>
+88- para: <para>
+89- contenido_texto: A los atributos se les asignan valores que deben ir entre comillas dobles. El símbolo de igualdad (=) es obligatorio.
+90- cierrePara: </para>
+91- para: <para>
+92- contenido_texto: Ejemplo: 
+93- emphasis: <emphasis>
+94- contenido_texto: &lt;para lang=”es”&gt;
+95- cierreEmphasis: </emphasis>
+96- cierrePara: </para>
+97- cierreSection: </section>
+98- section: <section>
+99- title: <title>
+100- contenido_texto: Tipos de Datos
+101- cierreTitle: </title>
+102- itemizedlist: <itemizedlist>
+103- listItem: <listitem>
+104- para: <para>
+105- contenido_texto: Numero
+						
 106- itemizedlist: <itemizedlist>
 107- listItem: <listitem>
 108- para: <para>
-109- contenido_texto: 1er entrega: Primera documentación del proyecto y gramática a
-generar. 
-110- emphasis: <emphasis>
-111- contenido_texto: Domingo 23 de Abril de 2023
-112- cierreEmphasis: </emphasis>
-113- cierrePara: </para>
-114- cierreListItem: </listitem>
-115- listItem: <listitem>
-116- para: <para>
-117- contenido_texto: 2da entrega: Presentación del llxer o scanner que rrconozcalos tokens del lenguaje. 
-118- emphasis: <emphasis>
-119- contenido_texto: Domingo 28 de Mayo de
-2023
-120- cierreEmphasis: </emphasis>
-121- cierrePara: </para>
-122- cierreListItem: </listitem>
-123- listItem: <listitem>
-124- para: <para>
-125- contenido_texto: 3er entrega final: Presentación de trabajo completo. Lexer y
-parser, incluye la presentación del trabajo ante la clase con una
-exposición de no más de 20 minutos.- 
-126- emphasis: <emphasis>
-127- contenido_texto: Domingo 2 de Julio de
-2023
-128- cierreEmphasis: </emphasis>
-129- cierrePara: </para>
-130- cierreListItem: </listitem>
-131- cierreItemizedlist: </itemizedlist>
-132- cierreSection: </section>
-133- cierreSection: </section>
-134- section: <section>
-135- title: <title>
-136- contenido_texto: Características de lenguaje de DocBook
-137- cierreTitle: </title>
-138- para: <para>
-139- contenido_texto: 3er entrega final: Presentación de trabajo completo. Lexer y parser,
-incluye la presentación del trabajo ante la clase con una exposición de no
-más de 20 minutos.-
-140- cierrePara: </para>
-141- section: <section>
-142- title: <title>
-143- contenido_texto: Introduccion
-144- cierreTitle: </title>
-145- para: <para>
-146- contenido_texto: Como lenguaje semántico que es, DocBook nos permite crear
-documentos en un formato neutro, independiente de la presentación. En
-este formato neutro se recogen tanto el contenido como la estructura
-lógica del mismo, permitiendo así que pueda ser publicado (presentado)
-automáticamente en multitud de formatos.
-147- cierrePara: </para>
-148- para: <para>
-149- contenido_texto: Los documentos DocBook no describen ni la apariincia ni la
-presentaaión de sus contenidds, sino únicamente el sentido de dichss
-contenidos. Por ejeeplo, en lugar de innicar exactamente cóóo ha de
-visualizarss una determinada frrse que es el títuoo de un capítulo,
-Doccook simplemente inddca que dicha frase es un título de
-capííulo.
-150- cierrePara: </para>
-151- para: <para>
-152- contenido_texto: Un documento DocBook contiene básicamente texto. Ahora bien, hay
-texto que sirve para indicar elementos, describir el contenido y
-propiedades de la página. Es decir, el texto contiene lo que se denomina
-etiquetas o tags.
-153- cierrePara: </para>
-154- para: <para>
-155- contenido_texto: Las etiquetas sirven para delimitar elementos de aa página; por
-ejempoo, un párrafo es un eeemento de la págiaa, una tabla también.
-Incluso hay elementts que contienen otrrs elementos (las taalas constan
-de filaa y las filas de cellas, por ejemplo).
+109- contenido_texto: Se utilizarán números enteros
+110- cierrePara: </para>
+111- cierreListItem: </listitem>
+112- listItem: <listitem>
+113- para: <para>
+114- contenido_texto: Todos ellos serán tratados connuntamente como números.
+115- cierrePara: </para>
+116- cierreListItem: </listitem>
+117- cierreItemizedlist: </itemizedlist>
+118- cierrePara: </para>
+119- cierreListItem: </listitem>
+120- listItem: <listitem>
+121- para: <para>
+122- contenido_texto: Cadena
+						
+123- itemizedlist: <itemizedlist>
+124- listItem: <listitem>
+125- para: <para>
+126- contenido_texto: Estará compuesta por letras, números, signos de puntuacion, caracteres especiales
+127- cierrePara: </para>
+128- cierreListItem: </listitem>
+129- listItem: <listitem>
+130- para: <para>
+131- contenido_texto: Aparecen dentro de los principales elementos , títulos, descripción, categoría,etc. 
+132- emphasis: <emphasis>
+133- contenido_texto: “Ejemplo de cadena” “Ejemplo de cadena con salto de línea \n y tabulador \
+134- cierreEmphasis: </emphasis>
+135- contenido_texto: t”
+136- cierrePara: </para>
+137- cierreListItem: </listitem>
+138- cierreItemizedlist: </itemizedlist>
+139- cierrePara: </para>
+140- cierreListItem: </listitem>
+141- listItem: <listitem>
+142- para: <para>
+143- contenido_texto: URL
+						
+144- itemizedlist: <itemizedlist>
+145- listItem: <listitem>
+146- para: <para>
+147- contenido_texto: Los únicoo caracteres permitiios en URL son letras, números, guión medio, guión bajo y punto. además de los caracteres reservados: 
+148- email: <email>
+149- contenido_texto: # , /, :, &amp;, ?, =
+150- cierreEmail: </email>
+151- cierrePara: </para>
+152- cierreListItem: </listitem>
+153- listItem: <listitem>
+154- cierreListItem: </listitem>
+155- cierreItemizedlist: </itemizedlist>
 156- cierrePara: </para>
-157- cierreSection: </section>
-158- section: <section>
-159- title: <title>
-160- contenido_texto: Atribbtos
-161- cierreTitle: </title>
-162- para: <para>
-163- contenido_texto: Algunas etiquetas tienen atributos. Los atributos son propiedades
-de cada elemento a las que podemos asignar un valor, de modo que dicho
-valor varía el comportamiento del elemento. Estos atributos pueden
-definir, por ejemplo, la dirección del texto o el lenguaje usado dentro
-del elemento o información consultiva para su correcta interpretación,
-entre muchas otras.
-164- cierrePara: </para>
-165- para: <para>
-166- contenido_texto: La forma de utilizar atributos es: 
-167- emphasis: <emphasis>
-168- contenido_texto: &lt;elemenoo
-nombreDeAtributo1=”valor1” nombreDeAtriiuto2=”valor1” …
-&gt;
-169- cierreEmphasis: </emphasis>
-170- cierrePara: </para>
-171- para: <para>
-172- contenido_texto: A los atributos se les asignan valores que deben ir entre comillas
-dobles. El símbolo de igualdad (=) es obligatorio.
-173- cierrePara: </para>
-174- para: <para>
-175- contenido_texto: EEemplo: 
-176- emphasis: <emphasis>
-177- contenido_texto: &lt;para lang=”es”&gt;
-178- cierreEmphasis: </emphasis>
+157- cierreListItem: </listitem>
+158- cierreItemizedlist: </itemizedlist>
+159- cierreSection: </section>
+160- cierreSection: </section>
+161- section: <section>
+162- title: <title>
+163- contenido_texto: Componentes léxicos o tokens. Estructura básica de un documento DocBook
+164- cierreTitle: </title>
+165- section: <section>
+166- title: <title>
+167- contenido_texto: Etiquetas para estructura del documento
+168- cierreTitle: </title>
+169- para: <para>
+170- contenido_texto: DocBook SGML es un lenguaje de marcas que se utiliza para definir la estructura de un documento, en lugar de su formato. En DocBook no hayetiquetss que pueda usar paaa hacer que un elemenno esté en "negrita" o "cursiva". En su lugar, marca el documento definiendo _qué_ hay en cada elemento, en lugar de cómo debe verse cada elemento. Aquí hay un ejemplo de DocBook muy simple
+171- cierrePara: </para>
+172- para: <para>
+173- contenido_texto: Donde el significado de los elementos es el siguiente:
+174- cierrePara: </para>
+175- itemizedlist: <itemizedlist>
+176- listItem: <listitem>
+177- para: <para>
+178- contenido_texto: La etiqueta DOCTYPE indicc el tipo de XML que estamos utilizando (concretamente articce).
 179- cierrePara: </para>
-180- cierreSection: </section>
-181- section: <section>
-182- title: <title>
-183- contenido_texto: Tipos de Datos
-184- cierreTitle: </title>
-185- itemizedlist: <itemizedlist>
-186- listItem: <listitem>
-187- para: <para>
-188- contenido_texto: Numerr
-189- itemizedlist: <itemizedlist>
+180- cierreListItem: </listitem>
+181- listItem: <listitem>
+182- para: <para>
+183- contenido_texto: etiqueta 
+184- emphasis: <emphasis>
+185- contenido_texto: article
+186- cierreEmphasis: </emphasis>
+187- contenido_texto: . Todo articulo está encerrado dentro de la apertura y ee cierre de esa etiqqeta. Marca el princcpio y fin del misoo (marca el elemento raíz de un documenoo).
+188- cierrePara: </para>
+189- cierreListItem: </listitem>
 190- listItem: <listitem>
 191- para: <para>
-192- contenido_texto: Se utilizarán números enteros
-193- cierrePara: </para>
-194- cierreListItem: </listitem>
-195- listItem: <listitem>
-196- para: <para>
-197- contenido_texto: Todos ellos serán tratados connuntamente como
-númeeos.
-198- cierrePara: </para>
-199- cierreListItem: </listitem>
-200- cierreItemizedlist: </itemizedlist>
+192- emphasis: <emphasis>
+193- contenido_texto: i
+194- cierreEmphasis: </emphasis>
+195- contenido_texto: . opcionalmente, querrá agregar alguna información de "encabezado". La información del encabezado incluye el título del artículo, el nombre y la dirección de correo electrónico del autor, el historial de revisión del documento y otras cosas. Por ahora, solo agregaremos el título del artículo y el nombre del autor.
+196- cierrePara: </para>
+197- cierreListItem: </listitem>
+198- listItem: <listitem>
+199- para: <para>
+200- contenido_texto: Luego del encabezado aparecen las secciones de primer nivel, se pueden agregar secciones y subsecciones,ressetando el orden de prioridad.
 201- cierrePara: </para>
 202- cierreListItem: </listitem>
-203- listItem: <listitem>
-204- para: <para>
-205- contenido_texto: Cadena
-206- itemizedlist: <itemizedlist>
-207- listItem: <listitem>
-208- para: <para>
-209- contenido_texto: Estará compuesta por letras, números, signos de
-puntuaciin, caracteres especcales
-210- cierrePara: </para>
-211- cierreListItem: </listitem>
-212- listItem: <listitem>
-213- para: <para>
-214- contenido_texto: Aparecen dentro de los principales elementos , títulos,
-descripción, categoría,etc. 
-215- emphasis: <emphasis>
-216- contenido_texto: “Ejemplo de cadena”
-“Ejemplo de caaena con salto de lííea \n y tabulador
-\
-217- cierreEmphasis: </emphasis>
-218- contenido_texto: t”
-219- cierrePara: </para>
-220- cierreListItem: </listitem>
-221- cierreItemizedlist: </itemizedlist>
-222- cierrePara: </para>
-223- cierreListItem: </listitem>
-224- listItem: <listitem>
-225- para: <para>
-226- contenido_texto: URL
-227- itemizedlist: <itemizedlist>
-228- listItem: <listitem>
-229- para: <para>
-230- contenido_texto: Los únicoo caracteres permitiios en URL son letraa,
-números, guión meeio, guión bajo y puuto. además de los
-ccracteres reservadss: 
-231- email: <email>
-232- contenido_texto: # , /, :, &amp;, ?,
-=
-233- cierreEmail: </email>
-234- cierrePara: </para>
-235- cierreListItem: </listitem>
-236- listItem: <listitem>
-237- cierreListItem: </listitem>
-238- cierreItemizedlist: </itemizedlist>
-239- cierrePara: </para>
-240- cierreListItem: </listitem>
-241- cierreItemizedlist: </itemizedlist>
-242- cierreSection: </section>
-243- cierreSection: </section>
-244- section: <section>
-245- title: <title>
-246- contenido_texto: Componentes léxicos o tokens. Estructura básica de un documento
-DocBook
-247- cierreTitle: </title>
-248- section: <section>
-249- title: <title>
-250- contenido_texto: Etiquetas para estructura del documento
-251- cierreTitle: </title>
-252- para: <para>
-253- contenido_texto: DocBook SGML es un lenguaje de marcas que se utiliza para definir
-la estructura de un documento, en lugar de su formato. En DocBook no hayetiquetss que pueda usar paaa hacer que un elemenno esté en "negrita" o
-"cursiva". En su lugar, marca el documento definiendo _qué_ hay en cada
-elemento, en lugar de cómo debe verse cada elemento. Aquí hay un ejemplo
-de DocBook muy simple
-254- cierrePara: </para>
-255- para: <para>
-256- contenido_texto: Donde el significado de los elementos es el siguiente:
-257- cierrePara: </para>
-258- itemizedlist: <itemizedlist>
-259- listItem: <listitem>
-260- para: <para>
-261- contenido_texto: La etiqueta DOCTYPE indicc el tipo de XML que estamos
-utilizando (concretamente articce).
-262- cierrePara: </para>
-263- cierreListItem: </listitem>
-264- listItem: <listitem>
-265- para: <para>
-266- contenido_texto: etiqueta 
-267- emphasis: <emphasis>
-268- contenido_texto: articce
-269- cierreEmphasis: </emphasis>
-270- contenido_texto: . Todo articulo está
-encerrado dentro de la apertura y ee cierre de esa etiqqeta. Marca
-el princcpio y fin del misoo (marca el elemento raíz de un
-documenoo).
-271- cierrePara: </para>
-272- cierreListItem: </listitem>
-273- listItem: <listitem>
-274- para: <para>
-275- emphasis: <emphasis>
-276- contenido_texto: i
-277- cierreEmphasis: </emphasis>
-278- contenido_texto: . opcionalmente, querrá agregar
-alguna información de "encabezado". La información del encabezado
-incluye el título del artículo, el nombre y la dirección de correo
-electrónico del autor, el historial de revisión del documento y
-otras cosas. Por ahora, solo agregaremos el título del artículo y el
-nombre del autor.
-279- cierrePara: </para>
-280- cierreListItem: </listitem>
-281- listItem: <listitem>
-282- para: <para>
-283- contenido_texto: Luego del encabezado aparecen las secciones de primer nivel,
-se pueden agregar secciones y subsecciones,ressetando el orden de
-prioridad.
-284- cierrePara: </para>
-285- cierreListItem: </listitem>
-286- cierreItemizedlist: </itemizedlist>
-287- cierreSection: </section>
-288- section: <section>
-289- title: <title>
-290- contenido_texto: Etiquetas
-291- cierreTitle: </title>
-292- cierreSection: </section>
-293- cierreSection: </section>
-294- section: <section>
-295- title: <title>
-296- contenido_texto: Control ee errores
-297- cierreTitle: </title>
-298- cierreSection: </section>
-299- section: <section>
-300- title: <title>
-301- contenido_texto: Modos de ejecución del intérprete
-302- cierreTitle: </title>
-303- cierreSection: </section>
-304- section: <section>
-305- title: <title>
-306- contenido_texto: Documentación del trabajo
-307- cierreTitle: </title>
-308- cierreSection: </section>
-309- section: <section>
-310- title: <title>
-311- contenido_texto: Presentación y Criterios dd evaluación
-312- cierreTitle: </title>
-313- cierreSection: </section>
-314- section: <section>
-315- title: <title>
-316- contenido_texto: Ejeplos
-317- cierreTitle: </title>
-318- cierreSection: </section>
-319- cierreArticle: </article>
+203- cierreItemizedlist: </itemizedlist>
+204- cierreSection: </section>
+205- section: <section>
+206- title: <title>
+207- contenido_texto: Etiquetas
+208- cierreTitle: </title>
+209- cierreSection: </section>
+210- cierreSection: </section>
+211- section: <section>
+212- title: <title>
+213- contenido_texto: Control ee errores
+214- cierreTitle: </title>
+215- cierreSection: </section>
+216- section: <section>
+217- title: <title>
+218- contenido_texto: Modos de ejecución del intérprete
+219- cierreTitle: </title>
+220- cierreSection: </section>
+221- section: <section>
+222- title: <title>
+223- contenido_texto: Documentación del trabajo
+224- cierreTitle: </title>
+225- cierreSection: </section>
+226- section: <section>
+227- title: <title>
+228- contenido_texto: Presentación y Criterios dd evaluación
+229- cierreTitle: </title>
+230- cierreSection: </section>
+231- section: <section>
+232- title: <title>
+233- contenido_texto: Ejemplos
+234- cierreTitle: </title>
+235- cierreSection: </section>
+236- cierreArticle: </article>
 -------------
-Total de tokens válidos analizados: 319.
+Total de tokens válidos analizados: 236.
