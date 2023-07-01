@@ -23,8 +23,11 @@ def p_SIGMA(p):
 
 def p_ARTICLE(p):
     '''ARTICLE : article INFO TITLE CONT_A_S cierreArticle
+				| article INFO TITLE CONT_A_S SECTIONS cierreArticle
 				| article TITLE CONT_A_S cierreArticle
+                | article TITLE CONT_A_S SECTIONS cierreArticle
                 | article INFO CONT_A_S cierreArticle
+                | article INFO CONT_A_S SECTIONS cierreArticle
                 | article CONT_A_S cierreArticle
                 
     '''
@@ -54,9 +57,13 @@ def p_ELEM_INFO(p):
 
 def p_SECTION(p):
     '''SECTION : section CONT_A_S cierreSection
+				| section CONT_A_S SECTIONS cierreSection
 				| section INFO CONT_A_S cierreSection
+                | section INFO CONT_A_S SECTIONS cierreSection
                 | section TITLE CONT_A_S cierreSection
+                | section TITLE CONT_A_S SECTIONS cierreSection
                 | section INFO TITLE CONT_A_S cierreSection
+                | section INFO TITLE CONT_A_S SECTIONS cierreSection
     '''
     exportarTxt.append(['Prod. SECTION -->', p.slice])
 
@@ -71,8 +78,6 @@ def p_SECTIONS(p):
 def p_CONT_A_S(p):
     '''CONT_A_S : CONT_1
 				| CONT_1 CONT_A_S
-                | CONT_1 SECTIONS
-                | CONT_1 CONT_A_S SECTIONS
     '''
     exportarTxt.append(['Prod. CONT_A_S -->', p.slice])
 
@@ -693,7 +698,7 @@ def p_error(p):
     if (p):
         print(f'Error en el parser --> Tipo: {p.type} | Valor: {p.value}')
         print('Error sintáctico en la LINEA:', p.lineno)
-        exportarTxt.append(['Error parser -->', p])
+        exportarTxt.append(['!!! Error parser -->', p])
     else:
         exportarTxt.append(['Error parser --> falta `cerrarrss`', None])
 

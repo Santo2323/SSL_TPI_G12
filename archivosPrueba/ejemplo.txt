@@ -12,7 +12,7 @@
 			<surname>Vigll</surname>
 		</author>
 		<date>2023</date>
-		<copyright>2023</copyright>
+		
 		<address>
 			<city> Resistencia </city>
 			<state>Chaco</state>

@@ -62,5 +62,261 @@ Producciones analizadas por el parser:
 ---------------
 31) Error parser --> | LexToken(contenido_texto,'2023',1,432)
 ---------------
+32) Prod. ELEM_TITLE --> | [ELEM_TITLE, LexToken(contenido_texto,'Trabajo Práctico Integrador: Diseño e implementación de Lexer y Parser',1,46)]
+---------------
+33) Prod. CONT_TITLE --> | [CONT_TITLE, ELEM_TITLE]
+---------------
+34) Prod. TITLE --> | [TITLE, LexToken(title,'<title>',1,39), CONT_TITLE, LexToken(cierreTitle,'</title>',1,116)]
+---------------
+35) Prod. ELEM_INFO --> | [ELEM_INFO, TITLE]
+---------------
+36) Prod. ELEM_TITLE --> | [ELEM_TITLE, LexToken(contenido_texto,'Ejemplo TPI',1,148)]
+---------------
+37) Prod. CONT_TITLE --> | [CONT_TITLE, ELEM_TITLE]
+---------------
+38) Prod. TITLE --> | [TITLE, LexToken(title,'<title>',1,141), CONT_TITLE, LexToken(cierreTitle,'</title>',1,159)]
+---------------
+39) Prod. ELEM_PARA --> | [ELEM_PARA, LexToken(contenido_texto,'Aceptor DocBook/XML y Conversor a HTML',1,177)]
+---------------
+40) Prod. CONT_PARA --> | [CONT_PARA, ELEM_PARA]
+---------------
+41) Prod. PARA --> | [PARA, LexToken(para,'<para>',1,171), CONT_PARA, LexToken(cierrePara,'</para>',1,215)]
+---------------
+42) Prod. CONT_2 --> | [CONT_2, LexToken(contenido_texto,'Simple Parrafo: Aceptor DocBook/XML y Conversor a HTML',1,235)]
+---------------
+43) Prod. CONT_SECL --> | [CONT_SECL, CONT_2]
+---------------
+44) Prod. SIMPARA --> | [SIMPARA, LexToken(simpara,'<simpara>',1,226), CONT_SECL, LexToken(cierreSimpara,'</simpara>',1,289)]
+---------------
+45) Prod. PARAS --> | [PARAS, SIMPARA]
+---------------
+46) Prod. PARAS --> | [PARAS, PARA, PARAS]
+---------------
+47) Prod. ABSTRACT --> | [ABSTRACT, LexToken(abstract,'<abstract>',1,127), TITLE, PARAS, LexToken(cierreAbstract,'</abstract>',1,302)]
+---------------
+48) Prod. ELEM_INFO --> | [ELEM_INFO, ABSTRACT]
+---------------
+49) Prod. CONT_3 --> | [CONT_3, LexToken(contenido_texto,'Rodrrgo',1,339)]
+---------------
+50) Prod. CONT_VAR --> | [CONT_VAR, CONT_3]
+---------------
+51) Prod. FIRSTNAME --> | [FIRSTNAME, LexToken(firstname,'<firstname>',1,328), CONT_VAR, LexToken(cierreFirstname,'</firstname>',1,346)]
+---------------
+52) Prod. CONT_3 --> | [CONT_3, LexToken(contenido_texto,'Vigll',1,371)]
+---------------
+53) Prod. CONT_VAR --> | [CONT_VAR, CONT_3]
+---------------
+54) Prod. SURNAME --> | [SURNAME, LexToken(surname,'<surname>',1,362), CONT_VAR, LexToken(cierreSurname,'</surname>',1,376)]
+---------------
+55) Prod. CONT_AUTHOR --> | [CONT_AUTHOR, FIRSTNAME, SURNAME]
+---------------
+56) Prod. AUTHOR --> | [AUTHOR, LexToken(author,'<author>',1,316), CONT_AUTHOR, LexToken(cierreAuthor,'</author>',1,389)]
+---------------
+57) Prod. ELEM_INFO --> | [ELEM_INFO, AUTHOR]
+---------------
+58) Prod. CONT_3 --> | [CONT_3, LexToken(contenido_texto,'2023',1,407)]
+---------------
+59) Prod. CONT_VAR --> | [CONT_VAR, CONT_3]
+---------------
+60) Prod. DATE --> | [DATE, LexToken(date,'<date>',1,401), CONT_VAR, LexToken(cierreDate,'</date>',1,411)]
+---------------
+61) Prod. ELEM_INFO --> | [ELEM_INFO, DATE]
+---------------
+62) Error parser --> | LexToken(contenido_texto,'2023',1,432)
+---------------
+63) Prod. ELEM_TITLE --> | [ELEM_TITLE, LexToken(contenido_texto,'Trabajo Práctico Integrador: Diseño e implementación de Lexer y Parser',1,46)]
+---------------
+64) Prod. CONT_TITLE --> | [CONT_TITLE, ELEM_TITLE]
+---------------
+65) Prod. TITLE --> | [TITLE, LexToken(title,'<title>',1,39), CONT_TITLE, LexToken(cierreTitle,'</title>',1,116)]
+---------------
+66) Prod. ELEM_INFO --> | [ELEM_INFO, TITLE]
+---------------
+67) Prod. ELEM_TITLE --> | [ELEM_TITLE, LexToken(contenido_texto,'Ejemplo TPI',1,148)]
+---------------
+68) Prod. CONT_TITLE --> | [CONT_TITLE, ELEM_TITLE]
+---------------
+69) Prod. TITLE --> | [TITLE, LexToken(title,'<title>',1,141), CONT_TITLE, LexToken(cierreTitle,'</title>',1,159)]
+---------------
+70) Prod. ELEM_PARA --> | [ELEM_PARA, LexToken(contenido_texto,'Aceptor DocBook/XML y Conversor a HTML',1,177)]
+---------------
+71) Prod. CONT_PARA --> | [CONT_PARA, ELEM_PARA]
+---------------
+72) Prod. PARA --> | [PARA, LexToken(para,'<para>',1,171), CONT_PARA, LexToken(cierrePara,'</para>',1,215)]
+---------------
+73) Prod. CONT_2 --> | [CONT_2, LexToken(contenido_texto,'Simple Parrafo: Aceptor DocBook/XML y Conversor a HTML',1,235)]
+---------------
+74) Prod. CONT_SECL --> | [CONT_SECL, CONT_2]
+---------------
+75) Prod. SIMPARA --> | [SIMPARA, LexToken(simpara,'<simpara>',1,226), CONT_SECL, LexToken(cierreSimpara,'</simpara>',1,289)]
+---------------
+76) Prod. PARAS --> | [PARAS, SIMPARA]
+---------------
+77) Prod. PARAS --> | [PARAS, PARA, PARAS]
+---------------
+78) Prod. ABSTRACT --> | [ABSTRACT, LexToken(abstract,'<abstract>',1,127), TITLE, PARAS, LexToken(cierreAbstract,'</abstract>',1,302)]
+---------------
+79) Prod. ELEM_INFO --> | [ELEM_INFO, ABSTRACT]
+---------------
+80) Prod. CONT_3 --> | [CONT_3, LexToken(contenido_texto,'Rodrrgo',1,339)]
+---------------
+81) Prod. CONT_VAR --> | [CONT_VAR, CONT_3]
+---------------
+82) Prod. FIRSTNAME --> | [FIRSTNAME, LexToken(firstname,'<firstname>',1,328), CONT_VAR, LexToken(cierreFirstname,'</firstname>',1,346)]
+---------------
+83) Prod. CONT_3 --> | [CONT_3, LexToken(contenido_texto,'Vigll',1,371)]
+---------------
+84) Prod. CONT_VAR --> | [CONT_VAR, CONT_3]
+---------------
+85) Prod. SURNAME --> | [SURNAME, LexToken(surname,'<surname>',1,362), CONT_VAR, LexToken(cierreSurname,'</surname>',1,376)]
+---------------
+86) Prod. CONT_AUTHOR --> | [CONT_AUTHOR, FIRSTNAME, SURNAME]
+---------------
+87) Prod. AUTHOR --> | [AUTHOR, LexToken(author,'<author>',1,316), CONT_AUTHOR, LexToken(cierreAuthor,'</author>',1,389)]
+---------------
+88) Prod. ELEM_INFO --> | [ELEM_INFO, AUTHOR]
+---------------
+89) Prod. CONT_3 --> | [CONT_3, LexToken(contenido_texto,'2023',1,407)]
+---------------
+90) Prod. CONT_VAR --> | [CONT_VAR, CONT_3]
+---------------
+91) Prod. DATE --> | [DATE, LexToken(date,'<date>',1,401), CONT_VAR, LexToken(cierreDate,'</date>',1,411)]
+---------------
+92) Prod. ELEM_INFO --> | [ELEM_INFO, DATE]
+---------------
+93) Error parser --> | LexToken(contenido_texto,'2023',1,432)
+---------------
+94) Prod. ELEM_TITLE --> | [ELEM_TITLE, LexToken(contenido_texto,'Trabajo Práctico Integrador: Diseño e implementación de Lexer y Parser',1,46)]
+---------------
+95) Prod. CONT_TITLE --> | [CONT_TITLE, ELEM_TITLE]
+---------------
+96) Prod. TITLE --> | [TITLE, LexToken(title,'<title>',1,39), CONT_TITLE, LexToken(cierreTitle,'</title>',1,116)]
+---------------
+97) Prod. ELEM_INFO --> | [ELEM_INFO, TITLE]
+---------------
+98) Prod. ELEM_TITLE --> | [ELEM_TITLE, LexToken(contenido_texto,'Ejemplo TPI',1,148)]
+---------------
+99) Prod. CONT_TITLE --> | [CONT_TITLE, ELEM_TITLE]
+---------------
+100) Prod. TITLE --> | [TITLE, LexToken(title,'<title>',1,141), CONT_TITLE, LexToken(cierreTitle,'</title>',1,159)]
+---------------
+101) Prod. ELEM_PARA --> | [ELEM_PARA, LexToken(contenido_texto,'Aceptor DocBook/XML y Conversor a HTML',1,177)]
+---------------
+102) Prod. CONT_PARA --> | [CONT_PARA, ELEM_PARA]
+---------------
+103) Prod. PARA --> | [PARA, LexToken(para,'<para>',1,171), CONT_PARA, LexToken(cierrePara,'</para>',1,215)]
+---------------
+104) Prod. CONT_2 --> | [CONT_2, LexToken(contenido_texto,'Simple Parrafo: Aceptor DocBook/XML y Conversor a HTML',1,235)]
+---------------
+105) Prod. CONT_SECL --> | [CONT_SECL, CONT_2]
+---------------
+106) Prod. SIMPARA --> | [SIMPARA, LexToken(simpara,'<simpara>',1,226), CONT_SECL, LexToken(cierreSimpara,'</simpara>',1,289)]
+---------------
+107) Prod. PARAS --> | [PARAS, SIMPARA]
+---------------
+108) Prod. PARAS --> | [PARAS, PARA, PARAS]
+---------------
+109) Prod. ABSTRACT --> | [ABSTRACT, LexToken(abstract,'<abstract>',1,127), TITLE, PARAS, LexToken(cierreAbstract,'</abstract>',1,302)]
+---------------
+110) Prod. ELEM_INFO --> | [ELEM_INFO, ABSTRACT]
+---------------
+111) Prod. CONT_3 --> | [CONT_3, LexToken(contenido_texto,'Rodrrgo',1,339)]
+---------------
+112) Prod. CONT_VAR --> | [CONT_VAR, CONT_3]
+---------------
+113) Prod. FIRSTNAME --> | [FIRSTNAME, LexToken(firstname,'<firstname>',1,328), CONT_VAR, LexToken(cierreFirstname,'</firstname>',1,346)]
+---------------
+114) Prod. CONT_3 --> | [CONT_3, LexToken(contenido_texto,'Vigll',1,371)]
+---------------
+115) Prod. CONT_VAR --> | [CONT_VAR, CONT_3]
+---------------
+116) Prod. SURNAME --> | [SURNAME, LexToken(surname,'<surname>',1,362), CONT_VAR, LexToken(cierreSurname,'</surname>',1,376)]
+---------------
+117) Prod. CONT_AUTHOR --> | [CONT_AUTHOR, FIRSTNAME, SURNAME]
+---------------
+118) Prod. AUTHOR --> | [AUTHOR, LexToken(author,'<author>',1,316), CONT_AUTHOR, LexToken(cierreAuthor,'</author>',1,389)]
+---------------
+119) Prod. ELEM_INFO --> | [ELEM_INFO, AUTHOR]
+---------------
+120) Prod. CONT_3 --> | [CONT_3, LexToken(contenido_texto,'2023',1,407)]
+---------------
+121) Prod. CONT_VAR --> | [CONT_VAR, CONT_3]
+---------------
+122) Prod. DATE --> | [DATE, LexToken(date,'<date>',1,401), CONT_VAR, LexToken(cierreDate,'</date>',1,411)]
+---------------
+123) Prod. ELEM_INFO --> | [ELEM_INFO, DATE]
+---------------
+124) Prod. CONT_3 --> | [CONT_3, LexToken(contenido_texto,'Resistencia ',1,444)]
+---------------
+125) Prod. CONT_VAR --> | [CONT_VAR, CONT_3]
+---------------
+126) Prod. CITY --> | [CITY, LexToken(city,'<city>',1,437), CONT_VAR, LexToken(cierreCity,'</city>',1,456)]
+---------------
+127) Prod. ELEM_ADDRESS --> | [ELEM_ADDRESS, CITY]
+---------------
+128) Prod. CONT_3 --> | [CONT_3, LexToken(contenido_texto,'Chaco',1,474)]
+---------------
+129) Prod. CONT_VAR --> | [CONT_VAR, CONT_3]
+---------------
+130) Prod. STATE --> | [STATE, LexToken(state,'<state>',1,467), CONT_VAR, LexToken(cierreState,'</state>',1,479)]
+---------------
+131) Prod. ELEM_ADDRESS --> | [ELEM_ADDRESS, STATE]
+---------------
+132) Prod. CONT_3 --> | [CONT_3, LexToken(contenido_texto,'French 414',1,499)]
+---------------
+133) Prod. CONT_VAR --> | [CONT_VAR, CONT_3]
+---------------
+134) Prod. STREET --> | [STREET, LexToken(street,'<street>',1,491), CONT_VAR, LexToken(cierreStreet,'</street>',1,509)]
+---------------
+135) Prod. ELEM_ADDRESS --> | [ELEM_ADDRESS, STREET]
+---------------
+136) Prod. CONT_3 --> | [CONT_3, LexToken(contenido_texto,'ssl@gmail.com',1,529)]
+---------------
+137) Prod. CONT_VAR --> | [CONT_VAR, CONT_3]
+---------------
+138) Prod. EMAIL --> | [EMAIL, LexToken(email,'<email>',1,522), CONT_VAR, LexToken(cierreEmail,'</email>',1,542)]
+---------------
+139) Prod. ELEM_ADDRESS --> | [ELEM_ADDRESS, EMAIL]
+---------------
+140) Prod. CONT_3 --> | [CONT_3, LexToken(contenido_texto,'3624888888s',1,561)]
+---------------
+141) Prod. CONT_VAR --> | [CONT_VAR, CONT_3]
+---------------
+142) Prod. PHONE --> | [PHONE, LexToken(phone,'<phone>',1,554), CONT_VAR, LexToken(cierrePhone,'</phone>',1,572)]
+---------------
+143) Prod. ELEM_ADDRESS --> | [ELEM_ADDRESS, PHONE]
+---------------
+144) Prod. CONT_ADDRESS --> | [CONT_ADDRESS, ELEM_ADDRESS]
+---------------
+145) Prod. CONT_ADDRESS --> | [CONT_ADDRESS, ELEM_ADDRESS, CONT_ADDRESS]
+---------------
+146) Prod. CONT_ADDRESS --> | [CONT_ADDRESS, ELEM_ADDRESS, CONT_ADDRESS]
+---------------
+147) Prod. CONT_ADDRESS --> | [CONT_ADDRESS, ELEM_ADDRESS, CONT_ADDRESS]
+---------------
+148) Prod. CONT_ADDRESS --> | [CONT_ADDRESS, ELEM_ADDRESS, CONT_ADDRESS]
+---------------
+149) Prod. ADDRESS --> | [ADDRESS, LexToken(address,'<address>',1,424), CONT_ADDRESS, LexToken(cierreAddress,'</address>',1,583)]
+---------------
+150) Prod. ELEM_INFO --> | [ELEM_INFO, ADDRESS]
+---------------
+151) Prod. CONT_INFO --> | [CONT_INFO, ELEM_INFO]
+---------------
+152) Prod. CONT_INFO --> | [CONT_INFO, ELEM_INFO, CONT_INFO]
+---------------
+153) Prod. CONT_INFO --> | [CONT_INFO, ELEM_INFO, CONT_INFO]
+---------------
+154) Prod. CONT_INFO --> | [CONT_INFO, ELEM_INFO, CONT_INFO]
+---------------
+155) Prod. CONT_INFO --> | [CONT_INFO, ELEM_INFO, CONT_INFO]
+---------------
+156) Prod. INFO --> | [INFO, LexToken(info,'<info>',1,30), CONT_INFO, LexToken(cierreInfo,'</info>',1,595)]
+---------------
+157) Prod. ELEM_TITLE --> | [ELEM_TITLE, LexToken(contenido_texto,'Trabajo Práctico Integrador: Diseño e implementación de Lexer y',1,611)]
+---------------
+158) Prod. CONT_TITLE --> | [CONT_TITLE, ELEM_TITLE]
+---------------
+159) Error parser --> | LexToken(section,'<section>',1,684)
+---------------
 ====================
-Total de tokens analizados: 31.
+Total de tokens analizados: 159.

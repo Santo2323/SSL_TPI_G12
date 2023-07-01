@@ -29,7 +29,7 @@ Rule 23    SECTIONS -> SIMPLE_SEC SECTIONS
 Rule 24    CONT_A_S -> CONT_1
 Rule 25    CONT_A_S -> CONT_1 CONT_A_S
 Rule 26    CONT_A_S -> CONT_1 SECTIONS
-Rule 27    CONT_A_S -> CONT_1 CONT_A_S SECTIONS
+Rule 27    CONT_A_S -> CONT_1 SECTIONS CONT_A_S
 Rule 28    CONT_1 -> ITEMIZED_LIST
 Rule 29    CONT_1 -> IMPORTANT
 Rule 30    CONT_1 -> PARA
@@ -379,7 +379,7 @@ state 4
     (24) CONT_A_S -> . CONT_1
     (25) CONT_A_S -> . CONT_1 CONT_A_S
     (26) CONT_A_S -> . CONT_1 SECTIONS
-    (27) CONT_A_S -> . CONT_1 CONT_A_S SECTIONS
+    (27) CONT_A_S -> . CONT_1 SECTIONS CONT_A_S
     (28) CONT_1 -> . ITEMIZED_LIST
     (29) CONT_1 -> . IMPORTANT
     (30) CONT_1 -> . PARA
@@ -438,7 +438,7 @@ state 5
     (24) CONT_A_S -> . CONT_1
     (25) CONT_A_S -> . CONT_1 CONT_A_S
     (26) CONT_A_S -> . CONT_1 SECTIONS
-    (27) CONT_A_S -> . CONT_1 CONT_A_S SECTIONS
+    (27) CONT_A_S -> . CONT_1 SECTIONS CONT_A_S
     (28) CONT_1 -> . ITEMIZED_LIST
     (29) CONT_1 -> . IMPORTANT
     (30) CONT_1 -> . PARA
@@ -493,7 +493,7 @@ state 6
     (24) CONT_A_S -> . CONT_1
     (25) CONT_A_S -> . CONT_1 CONT_A_S
     (26) CONT_A_S -> . CONT_1 SECTIONS
-    (27) CONT_A_S -> . CONT_1 CONT_A_S SECTIONS
+    (27) CONT_A_S -> . CONT_1 SECTIONS CONT_A_S
     (28) CONT_1 -> . ITEMIZED_LIST
     (29) CONT_1 -> . IMPORTANT
     (30) CONT_1 -> . PARA
@@ -618,11 +618,11 @@ state 10
     (24) CONT_A_S -> CONT_1 .
     (25) CONT_A_S -> CONT_1 . CONT_A_S
     (26) CONT_A_S -> CONT_1 . SECTIONS
-    (27) CONT_A_S -> CONT_1 . CONT_A_S SECTIONS
+    (27) CONT_A_S -> CONT_1 . SECTIONS CONT_A_S
     (24) CONT_A_S -> . CONT_1
     (25) CONT_A_S -> . CONT_1 CONT_A_S
     (26) CONT_A_S -> . CONT_1 SECTIONS
-    (27) CONT_A_S -> . CONT_1 CONT_A_S SECTIONS
+    (27) CONT_A_S -> . CONT_1 SECTIONS CONT_A_S
     (20) SECTIONS -> . SECTION
     (21) SECTIONS -> . SECTION SECTIONS
     (22) SECTIONS -> . SIMPLE_SEC
@@ -659,8 +659,6 @@ state 10
     (43) ABSTRACT -> . abstract TITLE cierreAbstract
     (44) ABSTRACT -> . abstract TITLE PARAS cierreAbstract
 
-  ! shift/reduce conflict for section resolved as shift
-  ! shift/reduce conflict for simpleSection resolved as shift
     cierreArticle   reduce using rule 24 (CONT_A_S -> CONT_1 .)
     cierreSection   reduce using rule 24 (CONT_A_S -> CONT_1 .)
     section         shift and go to state 58
@@ -674,9 +672,6 @@ state 10
     informalTable   shift and go to state 26
     comment         shift and go to state 27
     abstract        shift and go to state 28
-
-  ! section         [ reduce using rule 24 (CONT_A_S -> CONT_1 .) ]
-  ! simpleSection   [ reduce using rule 24 (CONT_A_S -> CONT_1 .) ]
 
     CONT_1                         shift and go to state 10
     CONT_A_S                       shift and go to state 54
@@ -1171,7 +1166,7 @@ state 29
     (24) CONT_A_S -> . CONT_1
     (25) CONT_A_S -> . CONT_1 CONT_A_S
     (26) CONT_A_S -> . CONT_1 SECTIONS
-    (27) CONT_A_S -> . CONT_1 CONT_A_S SECTIONS
+    (27) CONT_A_S -> . CONT_1 SECTIONS CONT_A_S
     (28) CONT_1 -> . ITEMIZED_LIST
     (29) CONT_1 -> . IMPORTANT
     (30) CONT_1 -> . PARA
@@ -1613,43 +1608,66 @@ state 53
 state 54
 
     (25) CONT_A_S -> CONT_1 CONT_A_S .
-    (27) CONT_A_S -> CONT_1 CONT_A_S . SECTIONS
-    (20) SECTIONS -> . SECTION
-    (21) SECTIONS -> . SECTION SECTIONS
-    (22) SECTIONS -> . SIMPLE_SEC
-    (23) SECTIONS -> . SIMPLE_SEC SECTIONS
-    (16) SECTION -> . section CONT_A_S cierreSection
-    (17) SECTION -> . section INFO CONT_A_S cierreSection
-    (18) SECTION -> . section TITLE CONT_A_S cierreSection
-    (19) SECTION -> . section INFO TITLE CONT_A_S cierreSection
-    (37) SIMPLE_SEC -> . simpleSection CONT_SS cierreSimpleSection
-    (38) SIMPLE_SEC -> . simpleSection INFO CONT_SS cierreSimpleSection
-    (39) SIMPLE_SEC -> . simpleSection TITLE CONT_SS cierreSimpleSection
-    (40) SIMPLE_SEC -> . simpleSection INFO TITLE CONT_SS cierreSimpleSection
 
-  ! shift/reduce conflict for section resolved as shift
-  ! shift/reduce conflict for simpleSection resolved as shift
     cierreArticle   reduce using rule 25 (CONT_A_S -> CONT_1 CONT_A_S .)
     cierreSection   reduce using rule 25 (CONT_A_S -> CONT_1 CONT_A_S .)
-    section         shift and go to state 58
-    simpleSection   shift and go to state 59
 
-  ! section         [ reduce using rule 25 (CONT_A_S -> CONT_1 CONT_A_S .) ]
-  ! simpleSection   [ reduce using rule 25 (CONT_A_S -> CONT_1 CONT_A_S .) ]
-
-    SECTIONS                       shift and go to state 136
-    SECTION                        shift and go to state 56
-    SIMPLE_SEC                     shift and go to state 57
 
 state 55
 
     (26) CONT_A_S -> CONT_1 SECTIONS .
+    (27) CONT_A_S -> CONT_1 SECTIONS . CONT_A_S
+    (24) CONT_A_S -> . CONT_1
+    (25) CONT_A_S -> . CONT_1 CONT_A_S
+    (26) CONT_A_S -> . CONT_1 SECTIONS
+    (27) CONT_A_S -> . CONT_1 SECTIONS CONT_A_S
+    (28) CONT_1 -> . ITEMIZED_LIST
+    (29) CONT_1 -> . IMPORTANT
+    (30) CONT_1 -> . PARA
+    (31) CONT_1 -> . SIMPARA
+    (32) CONT_1 -> . ADDRESS
+    (33) CONT_1 -> . MEDIA_OBJECT
+    (34) CONT_1 -> . INFORMAL_TABLE
+    (35) CONT_1 -> . COMMENT
+    (36) CONT_1 -> . ABSTRACT
+    (70) ITEMIZED_LIST -> . itemizedlist LIST_ITEM cierreItemizedlist
+    (116) IMPORTANT -> . important TITLE CONT_IMPORTANT cierreImportant
+    (117) IMPORTANT -> . important CONT_IMPORTANT cierreImportant
+    (56) PARA -> . para CONT_PARA cierrePara
+    (104) SIMPARA -> . simpara CONT_SECL cierreSimpara
+    (92) ADDRESS -> . address cierreAddress
+    (93) ADDRESS -> . address CONT_ADDRESS cierreAddress
+    (71) MEDIA_OBJECT -> . mediaObject INFO CONT_MEDIA_OBJECT cierreMediaObject
+    (72) MEDIA_OBJECT -> . mediaObject CONT_MEDIA_OBJECT cierreMediaObject
+    (136) INFORMAL_TABLE -> . informalTable TABLE_MEDIA cierreInformalTable
+    (137) INFORMAL_TABLE -> . informalTable TABLE_GROUP cierreInformalTable
+    (106) COMMENT -> . comment CONT_SECL cierreComment
+    (43) ABSTRACT -> . abstract TITLE cierreAbstract
+    (44) ABSTRACT -> . abstract TITLE PARAS cierreAbstract
 
     cierreArticle   reduce using rule 26 (CONT_A_S -> CONT_1 SECTIONS .)
-    section         reduce using rule 26 (CONT_A_S -> CONT_1 SECTIONS .)
-    simpleSection   reduce using rule 26 (CONT_A_S -> CONT_1 SECTIONS .)
     cierreSection   reduce using rule 26 (CONT_A_S -> CONT_1 SECTIONS .)
+    itemizedlist    shift and go to state 20
+    important       shift and go to state 21
+    para            shift and go to state 22
+    simpara         shift and go to state 23
+    address         shift and go to state 24
+    mediaObject     shift and go to state 25
+    informalTable   shift and go to state 26
+    comment         shift and go to state 27
+    abstract        shift and go to state 28
 
+    CONT_1                         shift and go to state 10
+    CONT_A_S                       shift and go to state 136
+    ITEMIZED_LIST                  shift and go to state 11
+    IMPORTANT                      shift and go to state 12
+    PARA                           shift and go to state 13
+    SIMPARA                        shift and go to state 14
+    ADDRESS                        shift and go to state 15
+    MEDIA_OBJECT                   shift and go to state 16
+    INFORMAL_TABLE                 shift and go to state 17
+    COMMENT                        shift and go to state 18
+    ABSTRACT                       shift and go to state 19
 
 state 56
 
@@ -1668,15 +1686,19 @@ state 56
     (39) SIMPLE_SEC -> . simpleSection TITLE CONT_SS cierreSimpleSection
     (40) SIMPLE_SEC -> . simpleSection INFO TITLE CONT_SS cierreSimpleSection
 
-  ! shift/reduce conflict for section resolved as shift
-  ! shift/reduce conflict for simpleSection resolved as shift
+    itemizedlist    reduce using rule 20 (SECTIONS -> SECTION .)
+    important       reduce using rule 20 (SECTIONS -> SECTION .)
+    para            reduce using rule 20 (SECTIONS -> SECTION .)
+    simpara         reduce using rule 20 (SECTIONS -> SECTION .)
+    address         reduce using rule 20 (SECTIONS -> SECTION .)
+    mediaObject     reduce using rule 20 (SECTIONS -> SECTION .)
+    informalTable   reduce using rule 20 (SECTIONS -> SECTION .)
+    comment         reduce using rule 20 (SECTIONS -> SECTION .)
+    abstract        reduce using rule 20 (SECTIONS -> SECTION .)
     cierreArticle   reduce using rule 20 (SECTIONS -> SECTION .)
     cierreSection   reduce using rule 20 (SECTIONS -> SECTION .)
     section         shift and go to state 58
     simpleSection   shift and go to state 59
-
-  ! section         [ reduce using rule 20 (SECTIONS -> SECTION .) ]
-  ! simpleSection   [ reduce using rule 20 (SECTIONS -> SECTION .) ]
 
     SECTION                        shift and go to state 56
     SECTIONS                       shift and go to state 137
@@ -1699,15 +1721,19 @@ state 57
     (39) SIMPLE_SEC -> . simpleSection TITLE CONT_SS cierreSimpleSection
     (40) SIMPLE_SEC -> . simpleSection INFO TITLE CONT_SS cierreSimpleSection
 
-  ! shift/reduce conflict for section resolved as shift
-  ! shift/reduce conflict for simpleSection resolved as shift
+    itemizedlist    reduce using rule 22 (SECTIONS -> SIMPLE_SEC .)
+    important       reduce using rule 22 (SECTIONS -> SIMPLE_SEC .)
+    para            reduce using rule 22 (SECTIONS -> SIMPLE_SEC .)
+    simpara         reduce using rule 22 (SECTIONS -> SIMPLE_SEC .)
+    address         reduce using rule 22 (SECTIONS -> SIMPLE_SEC .)
+    mediaObject     reduce using rule 22 (SECTIONS -> SIMPLE_SEC .)
+    informalTable   reduce using rule 22 (SECTIONS -> SIMPLE_SEC .)
+    comment         reduce using rule 22 (SECTIONS -> SIMPLE_SEC .)
+    abstract        reduce using rule 22 (SECTIONS -> SIMPLE_SEC .)
     cierreArticle   reduce using rule 22 (SECTIONS -> SIMPLE_SEC .)
     cierreSection   reduce using rule 22 (SECTIONS -> SIMPLE_SEC .)
     section         shift and go to state 58
     simpleSection   shift and go to state 59
-
-  ! section         [ reduce using rule 22 (SECTIONS -> SIMPLE_SEC .) ]
-  ! simpleSection   [ reduce using rule 22 (SECTIONS -> SIMPLE_SEC .) ]
 
     SIMPLE_SEC                     shift and go to state 57
     SECTIONS                       shift and go to state 138
@@ -1722,7 +1748,7 @@ state 58
     (24) CONT_A_S -> . CONT_1
     (25) CONT_A_S -> . CONT_1 CONT_A_S
     (26) CONT_A_S -> . CONT_1 SECTIONS
-    (27) CONT_A_S -> . CONT_1 CONT_A_S SECTIONS
+    (27) CONT_A_S -> . CONT_1 SECTIONS CONT_A_S
     (6) INFO -> . info CONT_INFO cierreInfo
     (45) TITLE -> . title CONT_TITLE cierreTitle
     (28) CONT_1 -> . ITEMIZED_LIST
@@ -3160,21 +3186,26 @@ state 135
 
 state 136
 
-    (27) CONT_A_S -> CONT_1 CONT_A_S SECTIONS .
+    (27) CONT_A_S -> CONT_1 SECTIONS CONT_A_S .
 
-    cierreArticle   reduce using rule 27 (CONT_A_S -> CONT_1 CONT_A_S SECTIONS .)
-    section         reduce using rule 27 (CONT_A_S -> CONT_1 CONT_A_S SECTIONS .)
-    simpleSection   reduce using rule 27 (CONT_A_S -> CONT_1 CONT_A_S SECTIONS .)
-    cierreSection   reduce using rule 27 (CONT_A_S -> CONT_1 CONT_A_S SECTIONS .)
+    cierreArticle   reduce using rule 27 (CONT_A_S -> CONT_1 SECTIONS CONT_A_S .)
+    cierreSection   reduce using rule 27 (CONT_A_S -> CONT_1 SECTIONS CONT_A_S .)
 
 
 state 137
 
     (21) SECTIONS -> SECTION SECTIONS .
 
+    itemizedlist    reduce using rule 21 (SECTIONS -> SECTION SECTIONS .)
+    important       reduce using rule 21 (SECTIONS -> SECTION SECTIONS .)
+    para            reduce using rule 21 (SECTIONS -> SECTION SECTIONS .)
+    simpara         reduce using rule 21 (SECTIONS -> SECTION SECTIONS .)
+    address         reduce using rule 21 (SECTIONS -> SECTION SECTIONS .)
+    mediaObject     reduce using rule 21 (SECTIONS -> SECTION SECTIONS .)
+    informalTable   reduce using rule 21 (SECTIONS -> SECTION SECTIONS .)
+    comment         reduce using rule 21 (SECTIONS -> SECTION SECTIONS .)
+    abstract        reduce using rule 21 (SECTIONS -> SECTION SECTIONS .)
     cierreArticle   reduce using rule 21 (SECTIONS -> SECTION SECTIONS .)
-    section         reduce using rule 21 (SECTIONS -> SECTION SECTIONS .)
-    simpleSection   reduce using rule 21 (SECTIONS -> SECTION SECTIONS .)
     cierreSection   reduce using rule 21 (SECTIONS -> SECTION SECTIONS .)
 
 
@@ -3182,9 +3213,16 @@ state 138
 
     (23) SECTIONS -> SIMPLE_SEC SECTIONS .
 
+    itemizedlist    reduce using rule 23 (SECTIONS -> SIMPLE_SEC SECTIONS .)
+    important       reduce using rule 23 (SECTIONS -> SIMPLE_SEC SECTIONS .)
+    para            reduce using rule 23 (SECTIONS -> SIMPLE_SEC SECTIONS .)
+    simpara         reduce using rule 23 (SECTIONS -> SIMPLE_SEC SECTIONS .)
+    address         reduce using rule 23 (SECTIONS -> SIMPLE_SEC SECTIONS .)
+    mediaObject     reduce using rule 23 (SECTIONS -> SIMPLE_SEC SECTIONS .)
+    informalTable   reduce using rule 23 (SECTIONS -> SIMPLE_SEC SECTIONS .)
+    comment         reduce using rule 23 (SECTIONS -> SIMPLE_SEC SECTIONS .)
+    abstract        reduce using rule 23 (SECTIONS -> SIMPLE_SEC SECTIONS .)
     cierreArticle   reduce using rule 23 (SECTIONS -> SIMPLE_SEC SECTIONS .)
-    section         reduce using rule 23 (SECTIONS -> SIMPLE_SEC SECTIONS .)
-    simpleSection   reduce using rule 23 (SECTIONS -> SIMPLE_SEC SECTIONS .)
     cierreSection   reduce using rule 23 (SECTIONS -> SIMPLE_SEC SECTIONS .)
 
 
@@ -3202,7 +3240,7 @@ state 140
     (24) CONT_A_S -> . CONT_1
     (25) CONT_A_S -> . CONT_1 CONT_A_S
     (26) CONT_A_S -> . CONT_1 SECTIONS
-    (27) CONT_A_S -> . CONT_1 CONT_A_S SECTIONS
+    (27) CONT_A_S -> . CONT_1 SECTIONS CONT_A_S
     (45) TITLE -> . title CONT_TITLE cierreTitle
     (28) CONT_1 -> . ITEMIZED_LIST
     (29) CONT_1 -> . IMPORTANT
@@ -3258,7 +3296,7 @@ state 141
     (24) CONT_A_S -> . CONT_1
     (25) CONT_A_S -> . CONT_1 CONT_A_S
     (26) CONT_A_S -> . CONT_1 SECTIONS
-    (27) CONT_A_S -> . CONT_1 CONT_A_S SECTIONS
+    (27) CONT_A_S -> . CONT_1 SECTIONS CONT_A_S
     (28) CONT_1 -> . ITEMIZED_LIST
     (29) CONT_1 -> . IMPORTANT
     (30) CONT_1 -> . PARA
@@ -4332,6 +4370,15 @@ state 201
 
     section         reduce using rule 16 (SECTION -> section CONT_A_S cierreSection .)
     simpleSection   reduce using rule 16 (SECTION -> section CONT_A_S cierreSection .)
+    itemizedlist    reduce using rule 16 (SECTION -> section CONT_A_S cierreSection .)
+    important       reduce using rule 16 (SECTION -> section CONT_A_S cierreSection .)
+    para            reduce using rule 16 (SECTION -> section CONT_A_S cierreSection .)
+    simpara         reduce using rule 16 (SECTION -> section CONT_A_S cierreSection .)
+    address         reduce using rule 16 (SECTION -> section CONT_A_S cierreSection .)
+    mediaObject     reduce using rule 16 (SECTION -> section CONT_A_S cierreSection .)
+    informalTable   reduce using rule 16 (SECTION -> section CONT_A_S cierreSection .)
+    comment         reduce using rule 16 (SECTION -> section CONT_A_S cierreSection .)
+    abstract        reduce using rule 16 (SECTION -> section CONT_A_S cierreSection .)
     cierreArticle   reduce using rule 16 (SECTION -> section CONT_A_S cierreSection .)
     cierreSection   reduce using rule 16 (SECTION -> section CONT_A_S cierreSection .)
 
@@ -4349,7 +4396,7 @@ state 203
     (24) CONT_A_S -> . CONT_1
     (25) CONT_A_S -> . CONT_1 CONT_A_S
     (26) CONT_A_S -> . CONT_1 SECTIONS
-    (27) CONT_A_S -> . CONT_1 CONT_A_S SECTIONS
+    (27) CONT_A_S -> . CONT_1 SECTIONS CONT_A_S
     (28) CONT_1 -> . ITEMIZED_LIST
     (29) CONT_1 -> . IMPORTANT
     (30) CONT_1 -> . PARA
@@ -4409,6 +4456,15 @@ state 205
 
     section         reduce using rule 37 (SIMPLE_SEC -> simpleSection CONT_SS cierreSimpleSection .)
     simpleSection   reduce using rule 37 (SIMPLE_SEC -> simpleSection CONT_SS cierreSimpleSection .)
+    itemizedlist    reduce using rule 37 (SIMPLE_SEC -> simpleSection CONT_SS cierreSimpleSection .)
+    important       reduce using rule 37 (SIMPLE_SEC -> simpleSection CONT_SS cierreSimpleSection .)
+    para            reduce using rule 37 (SIMPLE_SEC -> simpleSection CONT_SS cierreSimpleSection .)
+    simpara         reduce using rule 37 (SIMPLE_SEC -> simpleSection CONT_SS cierreSimpleSection .)
+    address         reduce using rule 37 (SIMPLE_SEC -> simpleSection CONT_SS cierreSimpleSection .)
+    mediaObject     reduce using rule 37 (SIMPLE_SEC -> simpleSection CONT_SS cierreSimpleSection .)
+    informalTable   reduce using rule 37 (SIMPLE_SEC -> simpleSection CONT_SS cierreSimpleSection .)
+    comment         reduce using rule 37 (SIMPLE_SEC -> simpleSection CONT_SS cierreSimpleSection .)
+    abstract        reduce using rule 37 (SIMPLE_SEC -> simpleSection CONT_SS cierreSimpleSection .)
     cierreArticle   reduce using rule 37 (SIMPLE_SEC -> simpleSection CONT_SS cierreSimpleSection .)
     cierreSection   reduce using rule 37 (SIMPLE_SEC -> simpleSection CONT_SS cierreSimpleSection .)
 
@@ -4836,6 +4892,15 @@ state 240
 
     section         reduce using rule 17 (SECTION -> section INFO CONT_A_S cierreSection .)
     simpleSection   reduce using rule 17 (SECTION -> section INFO CONT_A_S cierreSection .)
+    itemizedlist    reduce using rule 17 (SECTION -> section INFO CONT_A_S cierreSection .)
+    important       reduce using rule 17 (SECTION -> section INFO CONT_A_S cierreSection .)
+    para            reduce using rule 17 (SECTION -> section INFO CONT_A_S cierreSection .)
+    simpara         reduce using rule 17 (SECTION -> section INFO CONT_A_S cierreSection .)
+    address         reduce using rule 17 (SECTION -> section INFO CONT_A_S cierreSection .)
+    mediaObject     reduce using rule 17 (SECTION -> section INFO CONT_A_S cierreSection .)
+    informalTable   reduce using rule 17 (SECTION -> section INFO CONT_A_S cierreSection .)
+    comment         reduce using rule 17 (SECTION -> section INFO CONT_A_S cierreSection .)
+    abstract        reduce using rule 17 (SECTION -> section INFO CONT_A_S cierreSection .)
     cierreArticle   reduce using rule 17 (SECTION -> section INFO CONT_A_S cierreSection .)
     cierreSection   reduce using rule 17 (SECTION -> section INFO CONT_A_S cierreSection .)
 
@@ -4853,6 +4918,15 @@ state 242
 
     section         reduce using rule 18 (SECTION -> section TITLE CONT_A_S cierreSection .)
     simpleSection   reduce using rule 18 (SECTION -> section TITLE CONT_A_S cierreSection .)
+    itemizedlist    reduce using rule 18 (SECTION -> section TITLE CONT_A_S cierreSection .)
+    important       reduce using rule 18 (SECTION -> section TITLE CONT_A_S cierreSection .)
+    para            reduce using rule 18 (SECTION -> section TITLE CONT_A_S cierreSection .)
+    simpara         reduce using rule 18 (SECTION -> section TITLE CONT_A_S cierreSection .)
+    address         reduce using rule 18 (SECTION -> section TITLE CONT_A_S cierreSection .)
+    mediaObject     reduce using rule 18 (SECTION -> section TITLE CONT_A_S cierreSection .)
+    informalTable   reduce using rule 18 (SECTION -> section TITLE CONT_A_S cierreSection .)
+    comment         reduce using rule 18 (SECTION -> section TITLE CONT_A_S cierreSection .)
+    abstract        reduce using rule 18 (SECTION -> section TITLE CONT_A_S cierreSection .)
     cierreArticle   reduce using rule 18 (SECTION -> section TITLE CONT_A_S cierreSection .)
     cierreSection   reduce using rule 18 (SECTION -> section TITLE CONT_A_S cierreSection .)
 
@@ -4863,6 +4937,15 @@ state 243
 
     section         reduce using rule 38 (SIMPLE_SEC -> simpleSection INFO CONT_SS cierreSimpleSection .)
     simpleSection   reduce using rule 38 (SIMPLE_SEC -> simpleSection INFO CONT_SS cierreSimpleSection .)
+    itemizedlist    reduce using rule 38 (SIMPLE_SEC -> simpleSection INFO CONT_SS cierreSimpleSection .)
+    important       reduce using rule 38 (SIMPLE_SEC -> simpleSection INFO CONT_SS cierreSimpleSection .)
+    para            reduce using rule 38 (SIMPLE_SEC -> simpleSection INFO CONT_SS cierreSimpleSection .)
+    simpara         reduce using rule 38 (SIMPLE_SEC -> simpleSection INFO CONT_SS cierreSimpleSection .)
+    address         reduce using rule 38 (SIMPLE_SEC -> simpleSection INFO CONT_SS cierreSimpleSection .)
+    mediaObject     reduce using rule 38 (SIMPLE_SEC -> simpleSection INFO CONT_SS cierreSimpleSection .)
+    informalTable   reduce using rule 38 (SIMPLE_SEC -> simpleSection INFO CONT_SS cierreSimpleSection .)
+    comment         reduce using rule 38 (SIMPLE_SEC -> simpleSection INFO CONT_SS cierreSimpleSection .)
+    abstract        reduce using rule 38 (SIMPLE_SEC -> simpleSection INFO CONT_SS cierreSimpleSection .)
     cierreArticle   reduce using rule 38 (SIMPLE_SEC -> simpleSection INFO CONT_SS cierreSimpleSection .)
     cierreSection   reduce using rule 38 (SIMPLE_SEC -> simpleSection INFO CONT_SS cierreSimpleSection .)
 
@@ -4880,6 +4963,15 @@ state 245
 
     section         reduce using rule 39 (SIMPLE_SEC -> simpleSection TITLE CONT_SS cierreSimpleSection .)
     simpleSection   reduce using rule 39 (SIMPLE_SEC -> simpleSection TITLE CONT_SS cierreSimpleSection .)
+    itemizedlist    reduce using rule 39 (SIMPLE_SEC -> simpleSection TITLE CONT_SS cierreSimpleSection .)
+    important       reduce using rule 39 (SIMPLE_SEC -> simpleSection TITLE CONT_SS cierreSimpleSection .)
+    para            reduce using rule 39 (SIMPLE_SEC -> simpleSection TITLE CONT_SS cierreSimpleSection .)
+    simpara         reduce using rule 39 (SIMPLE_SEC -> simpleSection TITLE CONT_SS cierreSimpleSection .)
+    address         reduce using rule 39 (SIMPLE_SEC -> simpleSection TITLE CONT_SS cierreSimpleSection .)
+    mediaObject     reduce using rule 39 (SIMPLE_SEC -> simpleSection TITLE CONT_SS cierreSimpleSection .)
+    informalTable   reduce using rule 39 (SIMPLE_SEC -> simpleSection TITLE CONT_SS cierreSimpleSection .)
+    comment         reduce using rule 39 (SIMPLE_SEC -> simpleSection TITLE CONT_SS cierreSimpleSection .)
+    abstract        reduce using rule 39 (SIMPLE_SEC -> simpleSection TITLE CONT_SS cierreSimpleSection .)
     cierreArticle   reduce using rule 39 (SIMPLE_SEC -> simpleSection TITLE CONT_SS cierreSimpleSection .)
     cierreSection   reduce using rule 39 (SIMPLE_SEC -> simpleSection TITLE CONT_SS cierreSimpleSection .)
 
@@ -5072,6 +5164,15 @@ state 262
 
     section         reduce using rule 19 (SECTION -> section INFO TITLE CONT_A_S cierreSection .)
     simpleSection   reduce using rule 19 (SECTION -> section INFO TITLE CONT_A_S cierreSection .)
+    itemizedlist    reduce using rule 19 (SECTION -> section INFO TITLE CONT_A_S cierreSection .)
+    important       reduce using rule 19 (SECTION -> section INFO TITLE CONT_A_S cierreSection .)
+    para            reduce using rule 19 (SECTION -> section INFO TITLE CONT_A_S cierreSection .)
+    simpara         reduce using rule 19 (SECTION -> section INFO TITLE CONT_A_S cierreSection .)
+    address         reduce using rule 19 (SECTION -> section INFO TITLE CONT_A_S cierreSection .)
+    mediaObject     reduce using rule 19 (SECTION -> section INFO TITLE CONT_A_S cierreSection .)
+    informalTable   reduce using rule 19 (SECTION -> section INFO TITLE CONT_A_S cierreSection .)
+    comment         reduce using rule 19 (SECTION -> section INFO TITLE CONT_A_S cierreSection .)
+    abstract        reduce using rule 19 (SECTION -> section INFO TITLE CONT_A_S cierreSection .)
     cierreArticle   reduce using rule 19 (SECTION -> section INFO TITLE CONT_A_S cierreSection .)
     cierreSection   reduce using rule 19 (SECTION -> section INFO TITLE CONT_A_S cierreSection .)
 
@@ -5082,6 +5183,15 @@ state 263
 
     section         reduce using rule 40 (SIMPLE_SEC -> simpleSection INFO TITLE CONT_SS cierreSimpleSection .)
     simpleSection   reduce using rule 40 (SIMPLE_SEC -> simpleSection INFO TITLE CONT_SS cierreSimpleSection .)
+    itemizedlist    reduce using rule 40 (SIMPLE_SEC -> simpleSection INFO TITLE CONT_SS cierreSimpleSection .)
+    important       reduce using rule 40 (SIMPLE_SEC -> simpleSection INFO TITLE CONT_SS cierreSimpleSection .)
+    para            reduce using rule 40 (SIMPLE_SEC -> simpleSection INFO TITLE CONT_SS cierreSimpleSection .)
+    simpara         reduce using rule 40 (SIMPLE_SEC -> simpleSection INFO TITLE CONT_SS cierreSimpleSection .)
+    address         reduce using rule 40 (SIMPLE_SEC -> simpleSection INFO TITLE CONT_SS cierreSimpleSection .)
+    mediaObject     reduce using rule 40 (SIMPLE_SEC -> simpleSection INFO TITLE CONT_SS cierreSimpleSection .)
+    informalTable   reduce using rule 40 (SIMPLE_SEC -> simpleSection INFO TITLE CONT_SS cierreSimpleSection .)
+    comment         reduce using rule 40 (SIMPLE_SEC -> simpleSection INFO TITLE CONT_SS cierreSimpleSection .)
+    abstract        reduce using rule 40 (SIMPLE_SEC -> simpleSection INFO TITLE CONT_SS cierreSimpleSection .)
     cierreArticle   reduce using rule 40 (SIMPLE_SEC -> simpleSection INFO TITLE CONT_SS cierreSimpleSection .)
     cierreSection   reduce using rule 40 (SIMPLE_SEC -> simpleSection INFO TITLE CONT_SS cierreSimpleSection .)
 
@@ -5637,14 +5747,3 @@ state 291
     entrytbl        reduce using rule 158 (ENTRYTBL -> entrytbl THEAD TBODY cierreEntrytbl .)
     cierreRow       reduce using rule 158 (ENTRYTBL -> entrytbl THEAD TBODY cierreEntrytbl .)
 
-WARNING: 
-WARNING: Conflicts:
-WARNING: 
-WARNING: shift/reduce conflict for section in state 10 resolved as shift
-WARNING: shift/reduce conflict for simpleSection in state 10 resolved as shift
-WARNING: shift/reduce conflict for section in state 54 resolved as shift
-WARNING: shift/reduce conflict for simpleSection in state 54 resolved as shift
-WARNING: shift/reduce conflict for section in state 56 resolved as shift
-WARNING: shift/reduce conflict for simpleSection in state 56 resolved as shift
-WARNING: shift/reduce conflict for section in state 57 resolved as shift
-WARNING: shift/reduce conflict for simpleSection in state 57 resolved as shift
