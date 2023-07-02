@@ -1,17 +1,15 @@
-import ply.lex as lex   # lexer -> tokens
+# Importaciones
+import ply.lex as lex
 import re
 from logicaMenu import cls, logicaMenu
 from helpers import pedirRuta
 
+# Variable global que cuenta los errores encontrados
 contadorErrores = 0
 
-# Terminales
+# SIMBOLOS TERMINALES
 tokens = [
-    # simbolos
-    # 'dospuntos',
-    # 'slash',
-
-    # etiquetas
+    # Etiquetas Docbook/XML
     
     'doctype',
     
@@ -109,7 +107,6 @@ tokens = [
     'listItem',
     'cierreListItem',
     
-    
     'tgroup',
     'cierreTgroup',
     
@@ -134,29 +131,20 @@ tokens = [
     'cierreLink',
     'link',
     
-    # 'URL'
-	# 'URL',
-    # 'URL_relativa',
-    # 'URL_interna',
-    
     # Contenido entre etiquetas
     'contenido_texto',
-    # 'digito',
-    # 'numeral',
 ]
 
-# PLY detecta variables que empiecen con 't_'
-# Terminos:
-# w = letras o numeros
-# s = todo lo que sea espacios.
-# S = contrario a 's'.
-# d = digitos.
-#  = 0 o más.
-# + = 1 o más.
+# Terminos referentes a expresiones regulares
+# \w = caracter alfanumerico
+# \s = espacio en blanco
+# \S = contrario a 's'
+# \d = digito decimal
+# * = 0 o mas repeticiones
+# + = 1 o mas repeticiones
 
-# Definición de símbolos atómicos #
-
-# Etiquetas
+# PLY detecta funciones que empiecen con 't_' reconociendolas como tokens
+# Tokens
 def t_doctype(t): r'<!DOCTYPE article>'; return(t);
 
 def t_article(t): r'<article>'; return(t);
@@ -166,8 +154,7 @@ def t_section(t): r'<section>'; return(t);
 def t_cierreSection(t): r'</section>';  return(t);
 
 def t_info(t): r'<info>'; return(t);
-def t_cierreInfo(t): r'</info>'; return(t);   
- 
+def t_cierreInfo(t): r'</info>'; return(t);
 
 def t_simpleSection(t): r'<simplesect>'; return(t);
 def t_cierreSimpleSection(t): r'</simplesect>'; return(t);
@@ -198,7 +185,6 @@ def t_cierreComment(t): r'</comment>'; return (t);
 
 def t_abstract(t): r'<abstract>'; return (t);
 def t_cierreAbstract(t): r'</abstract>'; return (t);
-
 
 def t_author(t): r'<author>'; return (t);
 def t_cierreAuthor(t): r'</author>'; return (t);
@@ -263,11 +249,6 @@ def t_cierreEntry(t): r'</entry>'; return (t);
 def t_entrytbl(t): r'<entrytbl>'; return (t);
 def t_cierreEntrytbl(t): r'</entrytbl>'; return (t);
 
-# def t_link(t):
-#     r'<link\s+xlink:href\s*=\s*"((?:http[s]?|ftp[s]?):\/\/)?[^\s/$.?#].[^\s]*|(?:\./)?(?:[\w-]+/)*[\w-]+\.\w+(?:\?[^\s]*)?|\#[^\s]+"\s*>';
-#     return (t);
-
-
 def t_mediaObject(t): r'<mediaobject>'; return (t);
 def t_cierreMediaObject(t): r'</mediaobject>'; return (t);
 
@@ -277,40 +258,32 @@ def t_cierreVideoObject(t): r'</videoobject>'; return (t);
 def t_imageObject(t): r'<imageobject>'; return (t);
 def t_cierreImageObject(t): r'</imageobject>'; return (t);
 
-def t_imageData(t): r'<imagedata\s+fileref=["\'](?:(http[s]?|ftp[s]?)://)?(?:[\w.-]+/)*[\w.-]+\.[\w.-]+(?:\S+)?["\']\s*/>'; return (t);
+def t_imageData(t):
+    r'<imagedata\s+fileref=["\']((?:(http[s]?|ftp[s]?)://)?(?:[\w.-]+/)*[\w.-]+\.[\w.-]+(?:\S+)?)["\']\s*/>'
+    pattern = r'<imagedata\s+fileref=["\']((?:(http[s]?|ftp[s]?)://)?(?:[\w.-]+/)*[\w.-]+\.[\w.-]+(?:\S+)?)["\']\s*/>'
+    attr_value = re.match(pattern, t.value).group(1)
+    return (t)
 
-def t_videoData(t): r'<videodata\s+fileref=["\'](?:(http[s]?|ftp[s]?)://)?(?:[\w.-]+/)*[\w.-]+\.[\w.-]+(?:\S+)?["\']\s*/>'; return (t);
+def t_videoData(t):
+    r'<videodata\s+fileref=["\']((?:(http[s]?|ftp[s]?)://)?(?:[\w.-]+/)*[\w.-]+\.[\w.-]+(?:\S+)?)["\']\s*/>'
+    pattern = r'<videodata\s+fileref=["\']((?:(http[s]?|ftp[s]?)://)?(?:[\w.-]+/)*[\w.-]+\.[\w.-]+(?:\S+)?)["\']\s*/>'
+    attr_value = re.match(pattern, t.value).group(1)
+    return (t)
 
-# def t_videoData(t):
-#     r'<videodata\s+fileref\s*=\s*"((?:http[s]?|ftp[s]?):\/\/)?[^\s/$.?#].[^\s]*|(?:\./)?(?:[\w-]+/)*[\w-]+\.\w+(?:\?[^\s]*)?|\#[^\s]+"\/>';
-#     return (t);
+def t_link(t):
+    r'<link\s+xlink:href=["\']((?:(http[s]?|ftp[s]?)://)?(?:[\w.-]+/)*[\w.-]+\.[\w.-]+(?:\S+)?)["\']\s*>'
+    pattern = r'<link\s+xlink:href=["\'](?:(http[s]?|ftp[s]?)://)?(?:[\w.-]+/)*[\w.-]+\.[\w.-]+(?:\S+)?["\']\s*>'
+    attr_value = re.match(pattern, t.value).group(1)
+    return (t)
 
-def t_link(t): r'<link\s+xlink:href=["\'](?:(http[s]?|ftp[s]?)://)?(?:[\w.-]+/)*[\w.-]+\.[\w.-]+(?:\S+)?["\']\s*>'; return (t)
 def t_cierreLink(t): r'</link>'; return (t);
 
 def t_contenido_texto(t): r'([\w\W])+?(?=<)'; return (t)
 
-# def t_URL(t):
-#     r'((?:http[s]?|ftp[s]?):\/\/)?[^\s/$.?#].[^\s]*|(?:\./)?(?:[\w-]+/)*[\w-]+\.\w+(?:\?[^\s]*)?|\#[^\s]+';
-#     if '#' in t.value:
-#         t.type = 'URL_interna'
-#     elif t.value.startswith(('http://', 'https://', 'ftp://', 'ftps://')):
-#         t.type = 'URL'
-#     else:
-#         t.type = 'URL_relativa'
-#     return (t);
-
-
-
-# Resto
-# t_digito = r'\d+'
-# t_dospuntos = r'\:'
-# t_slash = r'/'
-# t_numeral = r'\#'
-
-# PLY ignorará espacios, saltos de lineas y tabs.
+# token que ignora los saltos de linea y tabulaciones
 t_ignore = ' \t\n'
 
+# Funcion que se ejecuta al encontrar un error lexico
 def t_error(t):
     global contadorErrores
     print(f'Caracter ilegal! : \'{t.value[0]}\'.')
@@ -323,7 +296,7 @@ def t_newline(t):
     t.lexer.lineno += len(t.value)
 
 
-# Logica para menu
+# Funciones correspondientes al MENU DE OPCIONES DEL USUARIO
 menu_options = {
     1: 'Analizar tokens desde un archivo, indicando su ruta.',
     2: 'Escanear tokens línea por línea.',
@@ -355,9 +328,9 @@ def analizarPorLinea():
             break;
         lexer.input(s)
         analizarTokens('normal', lexer)
-# Fin logica para menu
 
-# Exportar TOKENS a un .txt
+
+# Exportacion de TOKENS ENCONTRADOS a un archivo .txt
 def exportarTokens(arrAnalizar):
     global contadorErrores
     fileNameExport = f'tokens-analizados.txt'
