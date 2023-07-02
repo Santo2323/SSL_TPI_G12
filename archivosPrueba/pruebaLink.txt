@@ -5,6 +5,6 @@
     </info>
     <important>
      <title> asdfasf </title>
-     <para> ESTO ES IMPORTANTE </para>
+     <para> <link xlink:href="google.com" > ESTO ES IMPORTANTE </link> </para>
     </important>
 </article>
