@@ -2,8 +2,7 @@ from logicaMenu import logicaMenu
 from helpers import pedirRuta
 from obtenerHtml import exportarHtml
 
-import ply.yacc as yacc  # parser
-# Importar lexer para luego reiniciarlo (para no guardar su estado anterior)
+import ply.yacc as yacc
 import lexer
 from lexer import tokens
 
@@ -12,13 +11,16 @@ from importlib import reload
 exportarTxt = list()
 contadorErrores = 0
 
-# Mayusculas = No Terminales
-# Minusculas = Terminales
 
-def p_SIGMA(p):
-    ''' SIGMA : doctype ARTICLE'''
+# ---- PRODUCCIONES DE LA GRAMATICA ---- #
+# Mayusculas = No Terminales
+# Minusculas = Terminales (etiquetas/tokens)
+
+def p_SIGMA(p): # Simbolo distinguido
+    '''SIGMA : doctype ARTICLE
+    '''
     print("Ejecución completa!")
-    exportarTxt.append(['Prod. Sigma -->', p.slice])
+    exportarTxt.append(['Prod. SIGMA -->', p.slice])
 
 
 def p_ARTICLE(p):
@@ -29,12 +31,11 @@ def p_ARTICLE(p):
                 | article INFO CONT_A_S cierreArticle
                 | article INFO CONT_A_S SECTIONS cierreArticle
                 | article CONT_A_S cierreArticle
-                
     '''
     exportarTxt.append(['Prod. ARTICLE -->', p.slice])
     
 def p_INFO(p):
-    '''INFO : 	info CONT_INFO cierreInfo
+    '''INFO : info CONT_INFO cierreInfo
     '''
     exportarTxt.append(['Prod. INFO -->', p.slice])
 
@@ -65,7 +66,6 @@ def p_SECTION(p):
                 | section INFO TITLE CONT_A_S cierreSection
                 | section INFO TITLE CONT_A_S SECTIONS cierreSection
                 | section TITLE cierreSection
-
     '''
     exportarTxt.append(['Prod. SECTION -->', p.slice])
 
@@ -94,8 +94,6 @@ def p_CONT_1(p):
                 | INFORMAL_TABLE
                 | COMMENT
                 | ABSTRACT
-                
-                
     '''
     exportarTxt.append(['Prod. CONT_1 -->', p.slice])
 
@@ -174,8 +172,6 @@ def p_ELEM_PARA(p):
 
 def p_ITEMIZED_LIST(p):
     '''ITEMIZED_LIST : itemizedlist LIST_ITEM cierreItemizedlist
-                        
-    
     '''
     exportarTxt.append(['Prod. ITEMIZED_LIST -->', p.slice])
 
@@ -421,22 +417,17 @@ def p_TBODY(p):
     exportarTxt.append(['Prod. TBODY -->', p.slice])
 
 def p_ROW(p):
-    '''ROW : row CONT_ROW_1 cierreRow
-				| row CONT_ROW_2 cierreRow
+    '''ROW : row CONT_ROW cierreRow
     '''
     exportarTxt.append(['Prod. ROW -->', p.slice])
 
-def p_CONT_ROW_1(p):
+def p_CONT_ROW(p):
     '''CONT_ROW_1 : ENTRY
-				| ENTRY CONT_ROW_1
+				| ENTRY CONT_ROW
+                | ENTRYTBL
+				| ENTRYTBL CONT_ROW
     '''
     exportarTxt.append(['Prod. CONT_ROW_1 -->', p.slice])
-
-def p_CONT_ROW_2(p):
-    '''CONT_ROW_2 : ENTRYTBL
-				| ENTRYTBL CONT_ROW_2
-    '''
-    exportarTxt.append(['Prod. CONT_ROW_2 -->', p.slice])
 
 def p_ENTRY(p):
     '''ENTRY : entry CONT_ENTRY cierreEntry
