@@ -1,41 +1,132 @@
 import re
 
-channelTitleExpr = r'<channel>[\w\W]+?<title>([\w\W]+?)(?=<\/)'
-channelDescriptionExpr = r'<channel>[\w\W]+?<description>([\w\W]+?)(?=<\/)'
-channelLinkExpr = r'<channel>[\w\W]+?<link>([\w\W]+?)(?=<\/)'
+documentTitleExpr = r'<article>[\w\W]+?<title>([\w\W]+?)(?=<\/)'
 
-itemsTitlesAndDescriptionExpr = r'<item>[\w\W]+?(<title>([\w\W]+?)(?=<\/)([\w\W]+?)<description>([\w\W]+?)(?=<\/)|<description>([\w\W]+?)(?=<\/)([\w\W]+?)<title>([\w\W]+?)(?=<\/))'
+sectionTitleExpr = r'<section>[\w\W]+?<title>([\w\W]+?)(?=<\/)'
 
-def exportarHtml(fileContent, pathFile):
-  searchStr = '\\' if ("\\" in pathFile) else '/'
-  rawFileName = pathFile.split(searchStr)[-1]
-  fileName = rawFileName.split('.rss')[0]
+paraExpr = r'<para>([\w\W]+?)(?=<\/)'
+simparaExpr = r'<simpara>([\w\W]+?)(?=<\/)'
 
-  contentArr = []
-  ctitle = f'<h1>{re.findall(channelTitleExpr, fileContent)[0].strip()}</h1>'
-  cdescription = f'<p>{re.findall(channelDescriptionExpr, fileContent)[0].strip()}</p>'
+infoContentExpr = r'<info>([\w\W]*?)<\/info>'
 
-  clinkContent = re.findall(channelLinkExpr, fileContent)[0].strip()
-  clink = f'<a href="{clinkContent}">{clinkContent}</a>'
+importantExpr = r'<important>([\w\W]*?)<\/important>'
+
+itemizedListExpr = r'<itemizedlist>([\w\W]*?)<\/itemizedlist>'
+listItemExpr = r'<listitem>([\w\W]*?)<\/listitem>'
+
+tagContentExpr = r'<([^>]+)>(.*?)<\/\1>'
+innerTagsExpr = r'<(\w+)>([\w\W]*?)<\/\>'
+
+
+tagExpr = r'<\/?[a-zA-Z]+\b[^>]*>'
+
+
+def exportarHtml(fileContent, pathFile):  # Recibo el contenido del archivo y su path
   
-  # Base un archivo html
-  contentArr.append(
-    f'''<!DOCTYPE html>\n<html>\n<head>\n\t<meta charset="utf-8">\n\t<title>{fileName}</title>\n</head>\n<body>'''
-  )
-  contentArr.extend([ctitle, cdescription, clink])
+    searchStr = '\\' if ("\\" in pathFile) else '/'  # Reviso si el archivo se encuentra en una ruta con barras diagonales invertidas (\) o barras diagonales (/)
 
-  matches = re.findall(itemsTitlesAndDescriptionExpr, fileContent)
-  for match in matches:
-    titleIndex = 1 if match[1].strip() else 6
-    itemTitle = f'<h3>{match[titleIndex].strip()}</h3>'
+    rawFileName = pathFile.split(searchStr)[-1]  # Obtengo el nombre del archivo sin la ruta
+    fileName = rawFileName.split('.txt')[0]  # Obtengo el nombre del archivo sin la extensión
     
-    descriptionIndex = 3 if (match[1].strip()) else 4
-    itemDescription = f'<p>{match[descriptionIndex].strip()}</p>'
-    contentArr.extend([itemTitle, itemDescription])
-  
-  contentArr.append('\n</body>\n</html>')
+    contentArr = []  # Lista para almacenar el contenido del archivo HTML
+    contentArr.append(
+        f'''<!DOCTYPE html>\n<html>\n<head>\n\t<meta charset="utf-8">\n\t<title>{fileName}</title>\n</head>\n<body>'''
+    )
+    
+ 
+    # Extraer información del canal
+    cdocumentTitle = f'<H1>{re.findall(documentTitleExpr, fileContent)[0].strip()}</H1>'  # Busca y captura el título del Documento y lo envuelve en la etiqueta <h1>
+    contentArr.extend([cdocumentTitle])  
+        
+    csectionsTitle = re.findall(sectionTitleExpr, fileContent)   # Busca y captura todos los titulos de secciones
+    
+    for section in csectionsTitle:
+      csectionTitle = f'<H2>{section}</H2>'  # Busca y captura todos los titulos de secciones y lo envuelve en la etiqueta <h2>
+      contentArr.extend([csectionTitle])  
 
-  with open(f'{fileName}.html', 'w', encoding='UTF8') as f:
+    cInfo = re.findall(infoContentExpr, fileContent)  # DETECTO TODO EL CONTENIDO DEL INFO
+    
+    tagsIntoInfo = detectTagsIntoInfo(cInfo)  # Detecto cada tag dentro de info y lo devuelvo
+    
+    for tags in tagsIntoInfo:
+      contentArr.extend([tags])   # Por cada tag de info correcto, lo anado al html de salida
+      
+    cImportant = re.findall(importantExpr, fileContent)
+    tagsIntoImportant = detectTagsIntoImportant(cImportant)
+    
+    for tagsImpo in tagsIntoImportant:
+      contentArr.extend([tagsImpo]) 
+      
+    citemizedlist = re.findall(itemizedListExpr, fileContent)
+    
+    tagsIntoIL = tagsIntoItemizedList(citemizedlist)
+    
+    for tags in tagsIntoIL:
+      contentArr.extend([tags])
+    
+    
+    
+    # for important in cimportant:
+    #   removido = f'<div style="background-color:red; color: white; font-size:8px;"> {removeTags(important)} </div>' 
+    #   contentArr.extend([removido])  
+
+    # cparas = re.findall(paraExpr, fileContent)
+
+    # for para in cparas:
+    #   cpara = f'<p>{para}</p>'
+    #   contentArr.extend([cpara])  
+
+
+    contentArr.append('\n</body>\n</html>')  # Agrega el cierre del archivo HTML
+    
+    
+    
+    with open(f'{fileName}.html', 'w', encoding='UTF8') as f:
       for line in contentArr:
-          f.write(line)
-  f.close()
+        f.write(line)
+    f.close()
+    
+def removeTags(match):
+    content = match
+    encontrado = re.findall(tagExpr, match)
+    print(
+          )
+    
+    # if encontrado != []:
+    #   cparas = re.findall(paraExpr, match)
+    #   for para in cparas:
+    #     cpara = f'<p>{para}</p>'
+    #     return [cpara] 
+    
+def detectTagsIntoInfo(match):
+  tagsArray = []
+  for content in match:
+    detectados = re.findall(tagContentExpr, content) # POR CADA TAG, DEBO CONVERTIRLO A UN PARRAFO CON FONDO VERDE, LETRA DE COLOR BLANCO Y 8 PX
+    for detectado in detectados:
+      if(detectado[0] != 'title') and (detectado[0] != 'para') and (detectado[0] != 'simpara')  :
+        tagsArray.append(f'<p style= background-color:green; color:white; font-size:8px >{detectado[1]}</p>')   # VER SI ES TITLE Y TRANSFORMARLO A H1, SI ES PARA, TRANSFORMARLO A PARA, SI ES SIMPARA, TRANSFORMARLO EN SIMPARA
+  return tagsArray  
+
+def detectTagsIntoImportant(match):
+  tagsArray=[]
+  tagsArray.append(f'<div style="background-color:red; color:white;">')
+  for content in match:
+    detectados = re.findall(tagContentExpr, content)
+    for detectado in detectados:
+      if(detectado[0] == 'para'):
+        tagsArray.append(f'<p> {detectado[1]} </p>')
+      elif(detectado[0] != 'title') and (detectado[0] != 'para') and (detectado[0] != 'simpara'):
+        tagsArray.append(f'{detectado[1]}')
+  tagsArray.append(f'</div>')
+  return tagsArray
+
+
+def tagsIntoItemizedList(match):
+  tagsArray =[]
+  tagsArray.append('<ul>')   
+  for content in match:
+    detectados = re.findall(listItemExpr, content)
+    for detectado in detectados:
+      tagsArray.append(f'<li> {detectado} </li> ')
+  tagsArray.append('</ul>')
+  return tagsArray

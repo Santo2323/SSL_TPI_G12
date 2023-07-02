@@ -33,12 +33,16 @@
 	</section>
 	<section>
 		<title>Elaboración y entrega</title>
+
+Listo
 			<section>
 				<title>Modo de realización del trabajj</title>
 				<para>El trabajo se debe realizar de forma grupal en grupos de hasta cuatro (4) alumnos, donde cada integrante deberá realizar y presentar una parte del trabajo durante la ppesentación final.</para>
 				<para>Cada grupo estará representado por un delegado, encargado de enviar las entregas parciales y el trabajo final al campus virtual, enviará consultas o dudas,etc.</para>
 				<para>Cada grupo tendrá un docente designado como tutor encargado del seguimiento del trabajo, responder inquietudee.</para>
 			</section>
+
+
 	<section>
 	<title>Presentaciones</title>
 		<para>Se preveen tres instanciss de presentación:</para>
@@ -52,8 +56,9 @@
 			<listitem>
 				<para>3er entrega final: Presentación de trabajo completo. Lexer y parser, incluye la presentación del trabajo ante la clase con una exposición de no más de 20 minutos.- <emphasis>Domingo 2 de Julio de 2023</emphasis></para>
 			</listitem>
-			</itemizedlist>
+		</itemizedlist>
 	</section>
+
 	<section>
 		<title>Características de lenguaje de DocBook</title>
 		<para>3er entrega final: Presentación de trabajo completo. Lexer y parser, incluye la presentación del trabajo ante la clase con una exposición de no más de 20 minutos.-</para>
@@ -112,6 +117,8 @@
 			</itemizedlist>
 		</section>
 	</section>
+
+LISTO
 	<section>
 		<title>Componentes léxicos o tokens. Estructura básica de un documento DocBook</title>
 		<section>
@@ -133,21 +140,28 @@
 			</listitem>
 		</itemizedlist>
 	</section>
+
+
 	<section>
 		<title>Etiquetas</title>
 	</section>
+
 	<section>
 		<title>Control ee errores</title>
 	</section>
+
 	<section>
 		<title>Modos de ejecución del intérprete</title>
 	</section>
+
 	<section>
 		<title>Documentación del trabajo</title>
 	</section>
+
 	<section>
 		<title>Presentación y Criterios dd evaluación</title></section>
 	<section>
 		<title>Ejemplos</title>
 	</section>
+
 </article>

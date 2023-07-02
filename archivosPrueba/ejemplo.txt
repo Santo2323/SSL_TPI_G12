@@ -68,21 +68,21 @@ seguiiiento del trabajo, responder inquietudee.</para>
 <title>Presentaciones</title>
 <para>Se preveen tres instanciss de presentación:</para>
 <itemizedlist>
-<listitem>
-<para>1er entrega: Primera documentación del proyecto y gramática a
-generar. <emphasis>Domingo 23 de Abril de 2023</emphasis></para>
-</listitem>
-<listitem>
-<para>2da entrega: Presentación del llxer o scanner que rrconozca
-los tokens del lenguaje. <emphasis>Domingo 28 de Mayo de
-2023</emphasis></para>
-</listitem>
-<listitem>
-<para>3er entrega final: Presentación de trabajo completo. Lexer y
-parser, incluye la presentación del trabajo ante la clase con una
-exposición de no más de 20 minutos.- <emphasis>Domingo 2 de Julio de
-2023</emphasis></para>
-</listitem>
+    <listitem>
+    <para>1er entrega: Primera documentación del proyecto y gramática a
+    generar. <emphasis>Domingo 23 de Abril de 2023</emphasis></para>
+    </listitem>
+    <listitem>
+    <para>2da entrega: Presentación del llxer o scanner que rrconozca
+    los tokens del lenguaje. <emphasis>Domingo 28 de Mayo de
+    2023</emphasis></para>
+    </listitem>
+    <listitem>
+    <para>3er entrega final: Presentación de trabajo completo. Lexer y
+    parser, incluye la presentación del trabajo ante la clase con una
+    exposición de no más de 20 minutos.- <emphasis>Domingo 2 de Julio de
+    2023</emphasis></para>
+    </listitem>
 </itemizedlist>
 </section>
 </section>
